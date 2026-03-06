@@ -161,8 +161,12 @@ ul {
 
 /* === Hero === */
 .hero {
-  padding: 6rem 1.5rem;
+  padding: 4rem 1.5rem;
   text-align: center;
+}
+
+.hero-compass {
+  margin-bottom: 1.5rem;
 }
 
 .hero-tag {
@@ -198,7 +202,7 @@ ul {
 
 @media (min-width: 768px) {
   .hero {
-    padding: 8rem 1.5rem;
+    padding: 5rem 1.5rem;
   }
   .hero h1 {
     font-size: 3.75rem;
@@ -210,7 +214,7 @@ ul {
 
 @media (min-width: 1024px) {
   .hero {
-    padding: 10rem 1.5rem;
+    padding: 6rem 1.5rem;
   }
 }
 
@@ -273,11 +277,11 @@ ul {
 .section {
   max-width: 56rem;
   margin: 0 auto;
-  padding: 5rem 1.5rem;
+  padding: 3rem 1.5rem;
 }
 
 .section-tag {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -307,8 +311,41 @@ ul {
 
 @media (min-width: 768px) {
   .section {
-    padding: 7rem 3rem;
+    padding: 4rem 3rem;
   }
+}
+
+/* === Start Here grey box === */
+.start-here-box {
+  background: #1a1a1e;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 2.5rem;
+  margin-top: 1rem;
+}
+
+/* === Resource description === */
+.resource-card {
+  max-width: 56rem;
+  margin: 0 auto 2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  padding: 1.5rem 2rem;
+  text-align: left;
+}
+
+.resource-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.resource-card p {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+  margin-bottom: 1rem;
 }
 
 /* === Callout blocks === */
@@ -424,18 +461,18 @@ ul {
 
 /* === Products / Free Tools / Resources centered === */
 .section-centered {
-  padding: 5rem 1.5rem;
+  padding: 3rem 1.5rem;
   text-align: center;
 }
 
 @media (min-width: 768px) {
   .section-centered {
-    padding: 7rem 1.5rem;
+    padding: 4rem 1.5rem;
   }
 }
 
 .section-centered .section-tag {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 /* === Free Tools card === */
@@ -453,7 +490,7 @@ ul {
 
 /* === Contact === */
 .contact {
-  padding: 5rem 1.5rem;
+  padding: 3rem 1.5rem;
   text-align: center;
 }
 
@@ -483,7 +520,7 @@ ul {
 
 @media (min-width: 768px) {
   .contact {
-    padding: 7rem 1.5rem;
+    padding: 4rem 1.5rem;
   }
 }
 
