@@ -165,6 +165,10 @@ ul {
   text-align: center;
 }
 
+.hero-compass {
+  margin-bottom: 1.5rem;
+}
+
 .hero-tag {
   margin-bottom: 1.25rem;
   font-size: 0.75rem;
