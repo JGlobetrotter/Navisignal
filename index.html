@@ -1,0 +1,287 @@
+import { useState } from "react";
+import { Menu, X, ArrowRight, ExternalLink, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+
+const navLinks = [
+  { label: "Start Here", href: "#start" },
+  { label: "Products", href: "#products" },
+  { label: "Free Tools", href: "#free-tools" },
+  { label: "Resources", href: "#resources" },
+  { label: "Contact", href: "#contact" },
+];
+
+const Index = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Header */}
+      <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-12">
+          <span className="text-xs font-medium uppercase tracking-[3px] text-muted-foreground">
+            Navisignal
+          </span>
+          <nav className="hidden items-center gap-8 md:flex">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+            <SheetTrigger asChild className="md:hidden">
+              <Button variant="ghost" size="icon">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="bg-background border-border">
+              <nav className="mt-12 flex flex-col gap-6">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="text-lg text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section className="px-6 py-24 text-center md:py-32 lg:py-40">
+        <p className="mb-5 text-xs font-medium uppercase tracking-[3px] text-primary">
+          Navisignal
+        </p>
+        <h1 className="mx-auto mb-6 max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight md:text-6xl">
+          Evidence. Structure.{" "}
+          <span className="text-primary">Decision.</span>
+        </h1>
+        <p className="mx-auto mb-10 max-w-xl text-lg italic leading-relaxed text-muted-foreground md:text-xl">
+          Structured decision tools for complex environments.
+        </p>
+        <a href="#start">
+          <Button size="lg" className="gap-2 rounded px-8 text-sm font-bold uppercase tracking-wider">
+            Start Here <ArrowRight className="h-4 w-4" />
+          </Button>
+        </a>
+      </section>
+
+      {/* Divider */}
+      <hr className="mx-6 border-border md:mx-12" />
+
+      {/* Start Here */}
+      <section id="start" className="mx-auto max-w-4xl px-6 py-20 md:px-12 md:py-28">
+        <p className="mb-12 text-xs font-medium uppercase tracking-[3px] text-primary">
+          Start Here
+        </p>
+        <p className="mb-6 max-w-2xl text-base leading-[1.8] text-muted-foreground">
+          <strong className="text-foreground">Navisignal</strong> is the product ecosystem of{" "}
+          <a href="https://jmpetrus.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+            JMPetrus Consulting
+          </a>{" "}
+          — an evolving suite of practical tools designed to help leaders make sound decisions,
+          strengthen organizational governance and accelerate impact in complex, risk-exposed
+          environments.
+        </p>
+        <p className="mb-8 max-w-2xl text-base leading-[1.8] text-muted-foreground">
+          Each tool encodes structured judgment into usable and defensible formats — diagnostics,
+          frameworks, impact measurement, briefs, and decision supports.
+        </p>
+
+        <div className="my-8 space-y-4">
+          <div className="rounded-r-lg border-l-[3px] border-primary bg-card px-8 py-6">
+            <p className="text-base leading-relaxed text-muted-foreground">
+              Built for leaders who need decisions to{" "}
+              <strong className="text-foreground">hold up under scrutiny.</strong>
+            </p>
+          </div>
+          <div className="rounded-r-lg border-l-[3px] border-primary bg-card px-8 py-6">
+            <p className="text-base leading-relaxed text-muted-foreground">
+              Built for teams that{" "}
+              <strong className="text-foreground">cannot afford reversible thinking.</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <hr className="mx-6 border-border md:mx-12" />
+
+      {/* What You'll Find Here */}
+      <section className="mx-auto max-w-4xl px-6 py-20 md:px-12 md:py-28">
+        <p className="mb-12 text-xs font-medium uppercase tracking-[3px] text-primary">
+          What You'll Find Here
+        </p>
+        <p className="mb-10 text-base text-muted-foreground">
+          Structured decision tools for complex environments.
+        </p>
+
+        <div className="grid gap-12 md:grid-cols-2">
+          <div>
+            <h3 className="mb-4 text-lg font-semibold text-foreground">Tools designed for:</h3>
+            <ul className="space-y-3 text-[15px] leading-relaxed text-muted-foreground">
+              {[
+                "ESG and sustainability leaders navigating regulatory pressure",
+                "Governance teams facing ambiguity",
+                "Organizations managing reputation or operational exposure",
+                "Cross-functional teams making irreversible commitments",
+              ].map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="mb-4 text-lg font-semibold text-foreground">Formats may include:</h3>
+            <ul className="space-y-3 text-[15px] leading-relaxed text-muted-foreground">
+              {[
+                "Readiness diagnostics",
+                "Risk mapping tools",
+                "Decision briefs",
+                "Governance checklists",
+                "AI-enabled impact frameworks",
+              ].map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <hr className="mx-6 border-border md:mx-12" />
+
+      {/* Products Coming Soon */}
+      <section id="products" className="px-6 py-20 text-center md:py-28">
+        <p className="mb-12 text-xs font-medium uppercase tracking-[3px] text-primary">
+          Products Coming Soon
+        </p>
+
+        <div className="mx-auto mb-12 grid max-w-2xl gap-6 sm:grid-cols-2">
+          {[
+            {
+              title: "Sustainability Supplier Readiness Tool",
+              tag: "Assessing environmental, human rights & Supply Chain Compliance Risk",
+              desc: "This supplier assessment tool helps companies identify risks and prepare suppliers for regulations like CSRD, sustainability and supply chain due diligence.",
+            },
+            {
+              title: "Proposal Go / No-Go Tool",
+              tag: "Decide Whether to Pursue Bids and Consulting Opportunities",
+              desc: "A structured proposal go/no-go decision tool that helps NGOs, non-profits and consulting firms evaluate bid opportunities, assess risks, and decide whether to pursue proposals.",
+            },
+          ].map((product) => (
+            <Card
+              key={product.title}
+              className="border-border bg-card transition-colors hover:border-primary"
+            >
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg leading-snug">{product.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="text-sm leading-relaxed text-muted-foreground">{product.desc}</p>
+                <Badge
+                  variant="outline"
+                  className="border-primary text-primary"
+                >
+                  Coming Soon
+                </Badge>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <a href="#contact">
+          <Button size="lg" className="gap-2 rounded px-8 text-sm font-bold uppercase tracking-wider">
+            Join the Waitlist <ArrowRight className="h-4 w-4" />
+          </Button>
+        </a>
+      </section>
+
+      <hr className="mx-6 border-border md:mx-12" />
+
+      {/* Free Tools */}
+      <section id="free-tools" className="mx-auto max-w-4xl px-6 py-20 md:px-12 md:py-28">
+        <p className="mb-12 text-xs font-medium uppercase tracking-[3px] text-primary">
+          Free Tools
+        </p>
+        <Card className="border-border bg-card">
+          <CardHeader>
+            <CardTitle className="text-xl">
+              Monitoring and Evaluation SMART Logframe for NGOs
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <Button className="gap-2 rounded text-sm font-bold uppercase tracking-wider">
+              <Download className="h-4 w-4" /> Get My Download
+            </Button>
+          </CardContent>
+        </Card>
+      </section>
+
+      <hr className="mx-6 border-border md:mx-12" />
+
+      {/* Other Resources */}
+      <section id="resources" className="mx-auto max-w-4xl px-6 py-20 md:px-12 md:py-28">
+        <p className="mb-12 text-xs font-medium uppercase tracking-[3px] text-primary">
+          Other Resources
+        </p>
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button variant="outline" className="gap-2 rounded border-border text-sm font-bold uppercase tracking-wider hover:border-primary hover:text-primary">
+            ESG Institute Training <ExternalLink className="h-4 w-4" />
+          </Button>
+        </a>
+      </section>
+
+      <hr className="mx-6 border-border md:mx-12" />
+
+      {/* Contact */}
+      <section id="contact" className="px-6 py-20 text-center md:py-28">
+        <p className="mb-2 text-2xl font-bold">Joelle Petrus</p>
+        <p className="mb-4 text-[15px] italic text-muted-foreground">
+          Decision Advocate for risk-exposed teams.
+        </p>
+        <a
+          href="https://jmpetrus.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm tracking-wider text-primary transition-colors hover:text-primary/80"
+        >
+          Jmpetrus.com
+        </a>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border px-6 py-8 text-center">
+        <p className="mx-auto max-w-2xl text-xs leading-relaxed text-muted-foreground">
+          Navisignal is the product platform created by JMPetrus Consulting — a consulting
+          practice focused on equipping organizations with practical tools for clarity, alignment,
+          and growth. We believe great diagnostics are the foundation of great strategy.
+        </p>
+        <p className="mt-4 text-xs text-muted-foreground">
+          © 2026 JMPetrus Consulting. All rights reserved.
+        </p>
+      </footer>
+    </div>
+  );
+};
+
+export default Index;
