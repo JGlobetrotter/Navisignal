@@ -138,39 +138,39 @@
 
   <hr class="divider" />
 
-  <!-- Products Coming Soon -->
+  <!-- ============================================================
+       PRODUCTS — Copy a card block, paste it inside the grid, done.
+       ============================================================
+
+       TEMPLATE (copy everything between the dashed lines):
+       - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       <div class="card">
+         <h3>PRODUCT NAME</h3>
+         <p>Short product description.</p>
+         <a href="LEMON_SQUEEZY_LINK" class="lemonsqueezy-button btn btn-primary">Buy Now</a>
+         <span class="badge">Coming Soon</span>   ← delete this line once live
+       </div>
+       - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  -->
   <section id="products" class="section-centered">
-    <p class="section-tag">Products Coming Soon</p>
+    <p class="section-tag">Products</p>
 
     <div class="card-grid">
+
       <div class="card">
         <h3>Sustainability Supplier Readiness Tool</h3>
         <p>This supplier assessment tool helps companies identify risks and prepare suppliers for regulations like CSRD, sustainability and supply chain due diligence.</p>
-        <!-- ╔══════════════════════════════════════════════════════════════╗ -->
-        <!-- ║  LINK 1: SUSTAINABILITY SUPPLIER READINESS TOOL             ║ -->
-        <!-- ║  Replace href="#" below with your Lemon Squeezy product URL ║ -->
-        <!-- ║  Example: https://navisignal.lemonsqueezy.com/buy/abc123    ║ -->
-        <!-- ╚══════════════════════════════════════════════════════════════╝ -->
-        <a href="#" class="lemonsqueezy-button btn btn-primary">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
-          Buy Now
-        </a>
+        <a href="#" class="lemonsqueezy-button btn btn-primary">Buy Now</a>
         <span class="badge">Coming Soon</span>
       </div>
+
       <div class="card">
         <h3>Proposal Go / No-Go Tool</h3>
         <p>A structured proposal go/no-go decision tool that helps NGOs, non-profits and consulting firms evaluate bid opportunities, assess risks, and decide whether to pursue proposals.</p>
-        <!-- ╔══════════════════════════════════════════════════════════════╗ -->
-        <!-- ║  LINK 2: PROPOSAL GO / NO-GO TOOL                          ║ -->
-        <!-- ║  Replace href="#" below with your Lemon Squeezy product URL ║ -->
-        <!-- ║  Example: https://navisignal.lemonsqueezy.com/buy/def456    ║ -->
-        <!-- ╚══════════════════════════════════════════════════════════════╝ -->
-        <a href="#" class="lemonsqueezy-button btn btn-primary">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
-          Buy Now
-        </a>
+        <a href="#" class="lemonsqueezy-button btn btn-primary">Buy Now</a>
         <span class="badge">Coming Soon</span>
       </div>
+
     </div>
 
     <a href="#contact" class="btn btn-primary">
@@ -181,55 +181,83 @@
 
   <hr class="divider" />
 
-  <!-- Free Tools -->
-  <section id="free-tools" class="section">
+  <!-- ============================================================
+       FREE TOOLS — Copy a card block, paste it inside the grid, done.
+       ============================================================
+
+       TEMPLATE — basic (copy between the dashed lines):
+       - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       <div class="card free-tool-card">
+         <h3>TOOL NAME</h3>
+         <a href="LEMON_SQUEEZY_LINK" class="lemonsqueezy-button btn btn-primary">Get My Download</a>
+       </div>
+       - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+       TEMPLATE — with live demo embed (copy between the dashed lines):
+       - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       <div class="card free-tool-card free-tool-card--wide">
+         <h3>TOOL NAME</h3>
+         <div class="airtable-demo-wrapper">
+           <p class="demo-label">Live Demo</p>
+           <iframe class="airtable-embed" src="AIRTABLE_EMBED_URL" frameborder="0" width="100%" height="533" style="background: transparent;"></iframe>
+         </div>
+         <a href="LEMON_SQUEEZY_LINK" class="lemonsqueezy-button btn btn-primary">Get My Download</a>
+       </div>
+       - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  -->
+  <section id="free-tools" class="section-centered">
     <p class="section-tag">Free Tools</p>
-    <div class="card free-tool-card">
-      <h3>Monitoring and Evaluation SMART Logframe for NGOs</h3>
-      <div class="airtable-demo-wrapper">
-        <p class="demo-label">Live Demo</p>
-        <iframe class="airtable-embed" src="https://airtable.com/embed/app24Xjh0LSmI0emh/shrYEVguVbFdBbMdK" frameborder="0" width="100%" height="533" style="background: transparent;"></iframe>
+
+    <div class="free-tool-grid">
+
+      <div class="card free-tool-card free-tool-card--wide">
+        <h3>Monitoring and Evaluation SMART Logframe for NGOs</h3>
+        <div class="airtable-demo-wrapper">
+          <p class="demo-label">Live Demo</p>
+          <iframe class="airtable-embed" src="https://airtable.com/embed/app24Xjh0LSmI0emh/shrYEVguVbFdBbMdK" frameborder="0" width="100%" height="533" style="background: transparent;"></iframe>
+        </div>
+        <a href="#" class="lemonsqueezy-button btn btn-primary">Get My Download</a>
+        <a href="https://navisignal.lemonsqueezy.com/checkout/buy/c5bc07c5-ae18-4376-bd12-ebf3cd409dfc" class="lemonsqueezy-button btn btn-outline">Get Advanced Version</a>
       </div>
-      <!-- ╔══════════════════════════════════════════════════════════════╗ -->
-      <!-- ║  LINK 3: ADVANCED M&E LOGFRAME DOWNLOAD                       ║ -->
-      <!-- ║  Replace href="https://navisignal.lemonsqueezy.com/checkout/buy/c5bc07c5-ae18-4376-bd12-ebf3cd409dfc" below with your download/product URL      ║ -->
-      <!-- ║  Example: https://navisignal.lemonsqueezy.com/checkout/buy/c5bc07c5-ae18-4376-bd12-ebf3cd409dfc  ║ -->
-      <!-- ╚══════════════════════════════════════════════════════════════╝ -->
-      <a href="#" class="btn btn-primary">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
-        Get My Download
-      </a>
-    </div>
-    <div class="card free-tool-card">
-      <h3>RACI Matrix Generator</h3>
-      <a href="https://navisignal.lemonsqueezy.com/checkout/buy/83025b45-4c46-461b-9a96-135e74cbccf3" class="lemonsqueezy-button btn btn-primary">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
-        Get My Download
-      </a>
+
+      <div class="card free-tool-card">
+        <h3>RACI Matrix Generator</h3>
+        <a href="https://navisignal.lemonsqueezy.com/checkout/buy/83025b45-4c46-461b-9a96-135e74cbccf3" class="lemonsqueezy-button btn btn-primary">Get My Download</a>
+      </div>
+
     </div>
   </section>
 
   <hr class="divider" />
 
-  <!-- Other Resources -->
+  <!-- ============================================================
+       RESOURCES — Copy a card block, paste it inside this section, done.
+       ============================================================
+
+       TEMPLATE (copy between the dashed lines):
+       - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       <div class="resource-card">
+         <h3>RESOURCE NAME</h3>
+         <p>Short description of the resource.</p>
+         <div class="affiliate-link-wrapper">
+           <a href="AFFILIATE_LINK" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Visit RESOURCE NAME</a>
+         </div>
+         <a href="affiliate-disclosure.html" class="affiliate-tag">Affiliate link</a>
+       </div>
+       - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  -->
   <section id="resources" class="section">
     <p class="section-tag">Other Resources</p>
+
     <div class="resource-card">
       <h3>ESG Institute Training</h3>
       <p>Recommended ESG training programs covering sustainability governance, reporting frameworks, climate risk, and responsible business practices. Designed for professionals seeking practical knowledge of ESG implementation.</p>
       <div class="affiliate-link-wrapper">
-        <!-- ╔══════════════════════════════════════════════════════════════╗ -->
-        <!-- ║  LINK 4: ESG INSTITUTE AFFILIATE LINK                       ║ -->
-        <!-- ║  Replace href="#" below with your affiliate URL              ║ -->
-        <!-- ║  Example: https://esginstitute.com/?ref=navisignal           ║ -->
-        <!-- ╚══════════════════════════════════════════════════════════════╝ -->
-        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-          Visit ESG Institute
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-        </a>
+        <a href="https://esginstitute.teachable.com/l/products?sortKey=name&sortDirection=asc&page=1" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Visit ESG Institute</a>
       </div>
       <a href="affiliate-disclosure.html" class="affiliate-tag">Affiliate link</a>
     </div>
+
   </section>
 
   <hr class="divider" />
