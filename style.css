@@ -657,7 +657,7 @@ ul {
 .affiliate-tag {
   position: absolute;
   bottom: 0.75rem;
-  right: 1.25rem;
+  left: 1.25rem;
   font-size: 9.5pt;
   color: var(--muted-foreground);
   opacity: 0.7;
