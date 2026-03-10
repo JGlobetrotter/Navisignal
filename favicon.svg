@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="48" fill="#1a1f2e" stroke="#c5a44e" stroke-width="2.5"/>
+  <circle cx="50" cy="50" r="42" fill="none" stroke="#c5a44e" stroke-width="1.2"/>
+  <!-- Cardinal points -->
+  <text x="50" y="16" text-anchor="middle" fill="#c5a44e" font-family="serif" font-size="11" font-weight="bold">N</text>
+  <text x="50" y="93" text-anchor="middle" fill="#c5a44e" font-family="serif" font-size="11" font-weight="bold">S</text>
+  <text x="9" y="54" text-anchor="middle" fill="#c5a44e" font-family="serif" font-size="11" font-weight="bold">W</text>
+  <text x="91" y="54" text-anchor="middle" fill="#c5a44e" font-family="serif" font-size="11" font-weight="bold">E</text>
+  <!-- 8-point star compass rose -->
+  <!-- N -->
+  <polygon points="50,20 46,48 50,44 54,48" fill="#c5a44e"/>
+  <polygon points="50,20 46,48 50,52 54,48" fill="#4a5a7a" opacity="0.6"/>
+  <!-- S -->
+  <polygon points="50,80 54,52 50,56 46,52" fill="#c5a44e"/>
+  <polygon points="50,80 54,52 50,48 46,52" fill="#4a5a7a" opacity="0.6"/>
+  <!-- E -->
+  <polygon points="80,50 52,46 56,50 52,54" fill="#c5a44e"/>
+  <polygon points="80,50 52,46 48,50 52,54" fill="#4a5a7a" opacity="0.6"/>
+  <!-- W -->
+  <polygon points="20,50 48,54 44,50 48,46" fill="#c5a44e"/>
+  <polygon points="20,50 48,54 52,50 48,46" fill="#4a5a7a" opacity="0.6"/>
+  <!-- NE -->
+  <polygon points="71,29 53,47 55,49 53,51" fill="#4a5a7a"/>
+  <!-- NW -->
+  <polygon points="29,29 47,47 45,49 47,51" fill="#4a5a7a"/>
+  <!-- SE -->
+  <polygon points="71,71 53,53 55,51 53,49" fill="#4a5a7a"/>
+  <!-- SW -->
+  <polygon points="29,71 47,53 45,51 47,49" fill="#4a5a7a"/>
+  <!-- Center circle -->
+  <circle cx="50" cy="50" r="3" fill="#c5a44e"/>
+</svg>
