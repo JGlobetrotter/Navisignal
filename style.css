@@ -420,7 +420,7 @@ ul {
 
 /* === Cards === */
 .card-grid {
-  max-width: 40rem;
+  max-width: 64rem;
   margin: 0 auto 3rem;
   display: grid;
   gap: 1.5rem;
@@ -428,7 +428,13 @@ ul {
 
 @media (min-width: 640px) {
   .card-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -484,11 +490,32 @@ ul {
   margin-bottom: 2rem;
 }
 
-/* === Free Tools card === */
-.free-tool-card {
-  max-width: 56rem;
+/* === Free Tools grid & cards === */
+.free-tool-grid {
+  max-width: 64rem;
   margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .free-tool-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .free-tool-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.free-tool-card {
   text-align: left;
+}
+
+.free-tool-card--wide {
+  grid-column: 1 / -1;
 }
 
 .free-tool-card h3 {
