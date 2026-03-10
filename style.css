@@ -497,6 +497,29 @@ ul {
   margin-bottom: 1rem;
 }
 
+/* === Airtable Demo Embed === */
+.airtable-demo-wrapper {
+  margin: 1rem 0 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.airtable-demo-wrapper .demo-label {
+  padding: 0.5rem 1rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--primary);
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+}
+
+.airtable-demo-wrapper iframe {
+  display: block;
+}
+
 /* === Contact === */
 .contact {
   padding: 3rem 1.5rem;
