@@ -203,9 +203,17 @@ ul {
 
 .hero .subtitle {
   max-width: 36rem;
-  margin: 0 auto 2.5rem;
+  margin: 0 auto 1rem;
   font-size: 1.125rem;
   font-style: italic;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+.hero .hero-support {
+  max-width: 40rem;
+  margin: 0 auto 2.5rem;
+  font-size: 1rem;
   line-height: 1.7;
   color: var(--muted-foreground);
 }
