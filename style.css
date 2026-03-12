@@ -727,6 +727,55 @@ ul {
   opacity: 1;
 }
 
+/* === Demo Page === */
+.demo-page {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.demo-page-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.demo-page-description {
+  font-size: 1rem;
+  color: var(--muted-foreground);
+  margin-bottom: 2rem;
+}
+
+.demo-page-embed {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.demo-page-embed iframe {
+  display: block;
+}
+
+.demo-page-cta {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .demo-page {
+    padding: 4rem 3rem;
+  }
+  .demo-page-title {
+    font-size: 2.25rem;
+  }
+}
+
+/* === Free tool card button spacing === */
+.free-tool-card .btn {
+  margin-bottom: 0.75rem;
+  margin-right: 0.75rem;
+}
+
 /* === Lemon Squeezy Buy Buttons === */
 .card .lemonsqueezy-button {
   margin-bottom: 0.75rem;
