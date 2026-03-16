@@ -82,26 +82,30 @@
   <hr class="divider" />
 
   <!-- Start Here -->
-  <section id="start" class="section start-here-section">
+  <section id="start" class="section">
     <p class="section-tag">Start Here</p>
-    <p class="body start-here-body">
-      <strong>Navisignal</strong> is the product ecosystem of
-      <a href="https://jmpetrus.com" target="_blank" rel="noopener noreferrer">JMPetrus Consulting</a>
-      — an evolving suite of practical tools designed to help leaders make sound decisions,
-      strengthen organizational governance, and accelerate impact in complex, risk-exposed
-      environments.
-    </p>
+    <div class="start-here-box">
+      <p class="body">
+        <strong>Navisignal</strong> is the product ecosystem of
+        <a href="https://jmpetrus.com" target="_blank" rel="noopener noreferrer">JMPetrus Consulting</a>
+        — an evolving suite of practical tools designed to help leaders make sound decisions,
+        strengthen organizational governance, and accelerate impact in complex, risk-exposed
+        environments.
+      </p>
+      <p class="body">
+        Each tool encodes structured judgment into usable and defensible formats — diagnostics,
+        frameworks, impact measurement, briefs, and decision supports.
+      </p>
 
-    <!-- Audience entry buttons -->
-    <div class="audience-entry">
-      <button class="audience-entry-btn" data-audience="humanitarian" onclick="switchAudience('humanitarian')">
-        For Humanitarian &amp; Development Teams
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-      </button>
-      <button class="audience-entry-btn" data-audience="corporate" onclick="switchAudience('corporate')">
-        For Corporate Sustainability Teams
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-      </button>
+      <!-- Audience entry buttons -->
+      <div class="audience-entry">
+        <button class="audience-entry-btn active" data-audience="corporate" onclick="switchAudience('corporate')">
+          For Corporate Sustainability Teams
+        </button>
+        <button class="audience-entry-btn" data-audience="humanitarian" onclick="switchAudience('humanitarian')">
+          For Humanitarian &amp; Development Teams
+        </button>
+      </div>
     </div>
 
     <!-- Accordion: Humanitarian -->
@@ -204,12 +208,6 @@
        ============================================================ -->
   <section id="products" class="section-centered">
     <p class="section-tag">Solutions</p>
-
-    <!-- Audience toggle -->
-    <div class="audience-toggle">
-      <button class="audience-btn active" data-audience="corporate" onclick="switchAudience('corporate')">For Corporate Sustainability Teams</button>
-      <button class="audience-btn" data-audience="humanitarian" onclick="switchAudience('humanitarian')">For Humanitarian &amp; Development Teams</button>
-    </div>
 
     <!-- ====== CORPORATE VIEW ====== -->
     <div id="view-corporate" class="audience-view active">
