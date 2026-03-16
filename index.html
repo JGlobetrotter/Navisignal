@@ -6,8 +6,928 @@
   <title>Navisignal — Evidence. Structure. Action.</title>
   <meta name="description" content="Structured decision tools for complex environments. Navisignal is the product ecosystem of JMPetrus Consulting." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
   <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+
+<style>
+/* === Reset & Base === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+[hidden] { display: none !important; }
+
+:root {
+  --background: #09090b;
+  --foreground: #fafafa;
+  --card: #111113;
+  --card-border: #27272a;
+  --border: #27272a;
+  --muted-foreground: #a1a1aa;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --primary-10: rgba(59, 130, 246, 0.1);
+  --gold: #c9a84c;
+  --radius: 6px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* === Header === */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--border);
+  background: rgba(9, 9, 11, 0.95);
+  backdrop-filter: blur(12px);
+}
+
+.header-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--muted-foreground);
+}
+
+.logo-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--foreground);
+}
+
+/* Mobile nav toggle */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--foreground);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.mobile-toggle svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Mobile nav overlay */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.mobile-nav.open {
+  display: block;
+}
+
+.mobile-nav-panel {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 280px;
+  background: var(--background);
+  border-left: 1px solid var(--border);
+  padding: 4rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mobile-nav-panel a {
+  font-size: 1.125rem;
+  color: var(--muted-foreground);
+  transition: color 0.2s;
+}
+
+.mobile-nav-panel a:hover {
+  color: var(--foreground);
+}
+
+.mobile-nav-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  color: var(--foreground);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.mobile-nav-close svg {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .mobile-toggle {
+    display: block;
+  }
+}
+
+/* === Hero === */
+.hero {
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.hero-compass {
+  margin-bottom: 1.5rem;
+}
+
+.hero-tag {
+  margin-bottom: 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--primary);
+}
+
+.hero h1 {
+  max-width: 48rem;
+  margin: 0 auto 1.5rem;
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 .accent {
+  color: var(--primary);
+}
+
+.hero .subtitle {
+  max-width: 36rem;
+  margin: 0 auto 1rem;
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+.hero .hero-support {
+  max-width: 40rem;
+  margin: 0 auto 2.5rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.hero-nav-links a {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  transition: color 0.2s;
+}
+
+.hero-nav-links a:hover {
+  color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 5rem 1.5rem;
+  }
+  .hero h1 {
+    font-size: 3.75rem;
+  }
+  .hero .subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding: 6rem 1.5rem;
+  }
+}
+
+/* === Buttons === */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* === Divider === */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .divider {
+    margin: 0 3rem;
+  }
+}
+
+/* === Sections === */
+.section {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.section-tag {
+  margin-bottom: 2rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--primary);
+}
+
+.section p.body {
+  max-width: 42rem;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+}
+
+.section p.body strong {
+  color: var(--foreground);
+}
+
+.section p.body a {
+  color: var(--primary);
+}
+
+.section p.body a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 4rem 3rem;
+  }
+}
+
+/* === Section headings (DM Serif Display) === */
+.section-heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin-bottom: 1.25rem;
+  color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .section-heading {
+    font-size: 2rem;
+  }
+}
+
+/* === Cards === */
+.card-grid {
+  max-width: 64rem;
+  margin: 0 auto 3rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  padding: 1.5rem;
+  transition: border-color 0.2s;
+}
+
+.card:hover {
+  border-color: var(--primary);
+}
+
+.card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+.card p {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+  margin-bottom: 0.75rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid var(--primary);
+  border-radius: 9999px;
+  color: var(--primary);
+}
+
+/* === Products / Free Tools / Resources centered === */
+.section-centered {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .section-centered {
+    padding: 4rem 1.5rem;
+  }
+}
+
+.section-centered .section-tag {
+  margin-bottom: 2rem;
+}
+
+/* === Free Tools grid & cards === */
+.free-tool-grid {
+  max-width: 64rem;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .free-tool-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.free-tool-card {
+  text-align: left;
+}
+
+.free-tool-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.free-tool-card .btn {
+  margin-bottom: 0.75rem;
+  margin-right: 0.75rem;
+}
+
+/* === Helper text below free tools === */
+.helper-text {
+  max-width: 42rem;
+  margin: 1.5rem auto 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+/* === System Explanation (lifecycle phases) === */
+.lifecycle-phases {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin: 2rem auto;
+  max-width: 36rem;
+}
+
+.phase-item {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.phase-label {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.25rem;
+  color: var(--foreground);
+  white-space: nowrap;
+}
+
+.phase-arrow {
+  margin: 0 1rem;
+  color: var(--primary);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .lifecycle-phases {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .phase-arrow {
+    transform: rotate(90deg);
+    margin: 0;
+  }
+}
+
+/* === Audience Self-Select Cards === */
+.audience-cards {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 48rem;
+  margin: 0 auto 2rem;
+}
+
+@media (min-width: 640px) {
+  .audience-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.audience-card {
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  text-align: left;
+}
+
+.audience-card:hover {
+  border-color: var(--gold);
+}
+
+.audience-card.selected {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold);
+}
+
+.audience-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.audience-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.audience-card-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  color: var(--muted-foreground);
+}
+
+/* === Solutions Accordions === */
+.solutions-section {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .solutions-section {
+    padding: 4rem 3rem;
+  }
+}
+
+.solutions-view {
+  display: none;
+}
+
+.solutions-view.active {
+  display: block;
+}
+
+.solution-accordion {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.solution-accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--foreground);
+  background: var(--card);
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+  text-align: left;
+}
+
+.solution-accordion-trigger:hover {
+  color: var(--primary);
+}
+
+.solution-accordion-trigger svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform 0.25s;
+  color: var(--muted-foreground);
+}
+
+.solution-accordion.open .solution-accordion-trigger svg {
+  transform: rotate(180deg);
+}
+
+.solution-accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  background: var(--background);
+}
+
+.solution-accordion.open .solution-accordion-panel {
+  max-height: 200rem;
+}
+
+.solution-accordion-panel-inner {
+  padding: 1.25rem;
+}
+
+.solution-accordion-desc {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+  margin-bottom: 1.25rem;
+  max-width: 42rem;
+}
+
+.solution-card-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .solution-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .solution-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* === Audience CTA === */
+.audience-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* === Placeholder card === */
+.card--placeholder {
+  border-style: dashed;
+  opacity: 0.6;
+}
+
+/* === Credibility Section === */
+.credibility-grid {
+  display: grid;
+  gap: 3rem;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .credibility-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.credibility-grid h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.credibility-grid li {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+  margin-bottom: 0.75rem;
+}
+
+.bullet {
+  margin-top: 0.5rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+}
+
+.credibility-closing {
+  max-width: 56rem;
+  margin: 2rem auto 0;
+  font-size: 0.9375rem;
+  font-style: italic;
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+/* === Resource card === */
+.resource-card {
+  position: relative;
+  max-width: 56rem;
+  margin: 0 auto 2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  padding: 1.5rem 2rem 2.5rem;
+  text-align: left;
+}
+
+.resource-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.resource-card p {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+  margin-bottom: 1rem;
+}
+
+.affiliate-link-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.affiliate-tag {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 1.25rem;
+  font-size: 9.5pt;
+  color: var(--muted-foreground);
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+.affiliate-tag:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+/* === Waitlist / Early Access === */
+.waitlist-section {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.waitlist-section .body {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+  margin-bottom: 1.5rem;
+}
+
+.waitlist-perks {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  text-align: left;
+  display: inline-block;
+}
+
+.waitlist-perks li {
+  padding: 0.25rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  color: var(--muted-foreground);
+}
+
+.waitlist-perks li span {
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+/* === Contact === */
+.contact {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.contact h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.contact .role {
+  font-size: 0.9375rem;
+  font-style: italic;
+  color: var(--muted-foreground);
+  margin-bottom: 1rem;
+}
+
+.contact a {
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+  transition: color 0.2s;
+}
+
+.contact a:hover {
+  color: var(--primary-hover);
+}
+
+@media (min-width: 768px) {
+  .contact {
+    padding: 4rem 1.5rem;
+  }
+}
+
+/* === Footer === */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.site-footer p {
+  max-width: 42rem;
+  margin: 0 auto;
+  font-size: 0.75rem;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+}
+
+.site-footer .copyright {
+  margin-top: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+/* === Lemon Squeezy Buy Buttons === */
+.card .lemonsqueezy-button {
+  margin-bottom: 0.75rem;
+  font-size: 0.8125rem;
+  padding: 0.5rem 1.5rem;
+}
+</style>
+
 </head>
 <body>
 
@@ -20,9 +940,10 @@
       </span>
 
       <nav class="nav-links">
-        <a href="#start">Start Here</a>
-        <a href="#products">Solutions</a>
-        <a href="#free-tools">Free Tools</a>
+        <a href="#about">About</a>
+        <a href="#start-here">Start Here</a>
+        <a href="#who-is-this-for">Who is this for?</a>
+        <a href="#solutions">Solutions</a>
         <a href="#resources">Partner Resources</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -39,9 +960,10 @@
       <button class="mobile-nav-close" aria-label="Close menu" onclick="document.getElementById('mobile-nav').classList.remove('open')">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
-      <a href="#start" onclick="document.getElementById('mobile-nav').classList.remove('open')">Start Here</a>
-      <a href="#products" onclick="document.getElementById('mobile-nav').classList.remove('open')">Solutions</a>
-      <a href="#free-tools" onclick="document.getElementById('mobile-nav').classList.remove('open')">Free Tools</a>
+      <a href="#about" onclick="document.getElementById('mobile-nav').classList.remove('open')">About</a>
+      <a href="#start-here" onclick="document.getElementById('mobile-nav').classList.remove('open')">Start Here</a>
+      <a href="#who-is-this-for" onclick="document.getElementById('mobile-nav').classList.remove('open')">Who is this for?</a>
+      <a href="#solutions" onclick="document.getElementById('mobile-nav').classList.remove('open')">Solutions</a>
       <a href="#resources" onclick="document.getElementById('mobile-nav').classList.remove('open')">Partner Resources</a>
       <a href="#contact" onclick="document.getElementById('mobile-nav').classList.remove('open')">Contact</a>
     </div>
@@ -73,367 +995,50 @@
     <h1>Evidence. Structure. <span class="accent">Action.</span></h1>
     <p class="subtitle">Mission-critical tools for complex environments.</p>
     <p class="hero-support">Make defensible funding, risk and compliance decisions when evidence is fragmented, the stakes are high and resources have limits.</p>
-    <a href="#start" class="btn btn-primary">
-      Start Here
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-    </a>
+    <div class="hero-buttons">
+      <a href="#start-here" class="btn btn-primary">
+        Start with a free decision tool
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#credibility" class="btn btn-outline">See how teams use Navisignal</a>
+    </div>
+    <div class="hero-nav-links">
+      <a href="#about">About</a>
+      <a href="#who-is-this-for">Who is this for?</a>
+    </div>
   </section>
 
   <hr class="divider" />
 
-  <!-- Start Here -->
-  <section id="start" class="section">
-    <p class="section-tag">Start Here</p>
-    <div class="start-here-box">
-      <p class="body">
-        <strong>Navisignal</strong> is the product ecosystem of
-        <a href="https://jmpetrus.com" target="_blank" rel="noopener noreferrer">JMPetrus Consulting</a>
-        — an evolving suite of practical tools designed to help leaders make sound decisions,
-        strengthen organizational governance, and accelerate impact in complex, risk-exposed
-        environments.
-      </p>
-      <p class="body">
-        Each tool encodes structured judgment into usable and defensible formats — diagnostics,
-        frameworks, impact measurement, briefs, and decision supports.
-      </p>
-
-      <!-- Audience entry buttons -->
-      <div class="audience-entry">
-        <button class="audience-entry-btn active" data-audience="corporate" onclick="switchAudience('corporate')">
-          For Corporate Sustainability Teams
-        </button>
-        <button class="audience-entry-btn" data-audience="humanitarian" onclick="switchAudience('humanitarian')">
-          For Humanitarian &amp; Development Teams
-        </button>
-      </div>
-    </div>
-
-    <!-- Accordion: Humanitarian -->
-    <div id="accordion-humanitarian" class="accordion-view">
-      <div class="accordion-group">
-        <button class="accordion-trigger" onclick="toggleAccordion(this)">
-          <span>Decision Readiness</span>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="accordion-panel">
-          <ul>
-            <li><span class="bullet"></span>Proposal Go / No-Go Tool</li>
-            <li><span class="bullet"></span>M&amp;E Indicator Generator by Sector</li>
-          </ul>
-        </div>
-      </div>
-      <div class="accordion-group">
-        <button class="accordion-trigger" onclick="toggleAccordion(this)">
-          <span>Compliance &amp; Structure Design</span>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="accordion-panel">
-          <ul>
-            <li><span class="bullet"></span>Proposal Compliance Matrix Generator</li>
-          </ul>
-        </div>
-      </div>
-      <div class="accordion-group">
-        <button class="accordion-trigger" onclick="toggleAccordion(this)">
-          <span>Monitoring &amp; Accountability</span>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="accordion-panel">
-          <ul>
-            <li class="accordion-tbd">TBD</li>
-          </ul>
-        </div>
-      </div>
-      <!-- CTA: Humanitarian -->
-      <div class="audience-cta">
-        <a href="https://navisignal.lemonsqueezy.com/checkout/buy/c5bc07c5-ae18-4376-bd12-ebf3cd409dfc" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get the Advanced Logframe</a>
-        <a href="demo-logframe.html" class="btn btn-outline">See the demo</a>
-      </div>
-    </div>
-
-    <!-- Accordion: Corporate -->
-    <div id="accordion-corporate" class="accordion-view">
-      <div class="accordion-group">
-        <button class="accordion-trigger" onclick="toggleAccordion(this)">
-          <span>Decision Readiness</span>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="accordion-panel">
-          <ul>
-            <li><span class="bullet"></span>Sustainability Supplier Readiness Tool</li>
-            <li><span class="bullet"></span>Supplier / Partner Risk Assessment Tool</li>
-            <li><span class="bullet"></span>KPI Generator by Sector</li>
-          </ul>
-        </div>
-      </div>
-      <div class="accordion-group">
-        <button class="accordion-trigger" onclick="toggleAccordion(this)">
-          <span>Compliance &amp; Structure Design</span>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="accordion-panel">
-          <ul>
-            <li><span class="bullet"></span>HRDD Responsibility Mapping Tool</li>
-            <li><span class="bullet"></span>Proposal Compliance Matrix Generator</li>
-            <li><span class="bullet"></span>LCA Prep Assistant</li>
-          </ul>
-        </div>
-      </div>
-      <div class="accordion-group">
-        <button class="accordion-trigger" onclick="toggleAccordion(this)">
-          <span>Monitoring &amp; Accountability</span>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="accordion-panel">
-          <ul>
-            <li><span class="bullet"></span>Supplier Sustainability MRV Tool</li>
-            <li><span class="bullet"></span>Supply Chain Transparency &amp; Governance Tool</li>
-            <li><span class="bullet"></span>Rights Protector (Grievance Mechanism)</li>
-          </ul>
-        </div>
-      </div>
-      <!-- CTA: Corporate -->
-      <div class="audience-cta">
-        <a href="https://navisignal.lemonsqueezy.com/checkout/buy/83025b45-4c46-461b-9a96-135e74cbccf3" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Run the RACI Tool</a>
-        <a href="#free-tools" class="btn btn-outline">See the demo</a>
-      </div>
-    </div>
-
+  <!-- About -->
+  <section id="about" class="section">
+    <p class="section-tag">About</p>
+    <p class="body">
+      <strong>Navisignal</strong> is the product ecosystem of
+      <a href="https://jmpetrus.com" target="_blank" rel="noopener noreferrer">JMPetrus Consulting</a>
+      — an evolving suite of practical tools designed to help leaders make sound decisions,
+      strengthen organizational governance, and accelerate impact in complex, risk-exposed
+      environments.
+    </p>
+    <p class="body">
+      Each tool encodes structured judgment into usable and defensible formats — diagnostics,
+      frameworks, impact measurement systems, decision briefs, and governance supports.
+    </p>
   </section>
 
   <hr class="divider" />
 
-  <!-- ============================================================
-       PRODUCTS — Audience-filtered, lifecycle-grouped tool system
-       ============================================================ -->
-  <section id="products" class="section-centered">
-    <p class="section-tag">Solutions</p>
-
-    <!-- ====== CORPORATE VIEW ====== -->
-    <div id="view-corporate" class="audience-view active">
-
-      <!-- Layer 1: Decision Readiness -->
-      <div class="lifecycle-group">
-        <h3 class="lifecycle-heading">Decision Readiness</h3>
-        <p class="lifecycle-desc">Early-stage tools that help organizations evaluate readiness, supplier exposure, and risk prioritization.</p>
-        <div class="card-grid">
-          <div class="card">
-            <h3>Sustainability Supplier Readiness Tool</h3>
-            <p>This supplier assessment tool helps companies identify risks and prepare suppliers for regulations like CSRD, sustainability and supply chain due diligence.</p>
-            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-            <span class="badge">Coming Soon</span>
-          </div>
-          <div class="card">
-            <h3>Supplier / Partner Risk Assessment Tool</h3>
-            <p>Screen and assess supplier and partner risks across ESG, financial, and operational dimensions to strengthen your due diligence process.</p>
-            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-            <span class="badge">Coming Soon</span>
-          </div>
-          <div class="card">
-            <h3>KPI Generator by Sector</h3>
-            <p>Generate sector-specific sustainability KPIs to track and report on ESG performance aligned with industry standards and frameworks.</p>
-            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-            <span class="badge">Coming Soon</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Layer 2: Compliance & Structure Design -->
-      <div class="lifecycle-group">
-        <h3 class="lifecycle-heading">Compliance &amp; Structure Design</h3>
-        <p class="lifecycle-desc">Mid-stage tools that help organizations design governance, build compliance systems, and structure due diligence.</p>
-        <div class="card-grid">
-          <div class="card">
-            <h3>HRDD Responsibility Mapping Tool</h3>
-            <p>Map human rights due diligence responsibilities across your organisation and supply chain, aligned with UNGPs and EU CSDDD requirements.</p>
-            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-            <span class="badge">Coming Soon</span>
-          </div>
-          <div class="card">
-            <h3>Proposal Compliance Matrix Generator</h3>
-            <p>Automatically generate compliance matrices from RFP requirements to ensure your proposals meet every specification and evaluation criterion.</p>
-            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-            <span class="badge">Coming Soon</span>
-          </div>
-          <div class="card">
-            <h3>LCA Prep Assistant</h3>
-            <p>Prepare for Life Cycle Assessments with guided data collection, scope definition, and documentation aligned with ISO 14040/14044 standards.</p>
-            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-            <span class="badge">Coming Soon</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Layer 3: Monitoring & Accountability -->
-      <div class="lifecycle-group">
-        <h3 class="lifecycle-heading">Monitoring &amp; Accountability</h3>
-        <p class="lifecycle-desc">Tools that help track ESG performance, manage supply chain visibility, and demonstrate accountability.</p>
-        <div class="card-grid">
-          <div class="card">
-            <h3>Supplier Sustainability MRV Tool</h3>
-            <p>Measure, report, and verify supplier sustainability performance with a structured MRV framework for supply chain transparency.</p>
-            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-            <span class="badge">Coming Soon</span>
-          </div>
-          <div class="card">
-            <h3>Supply Chain Transparency &amp; Governance Tool</h3>
-            <p>Map supply chains, track compliance, and manage governance across tiers with a comprehensive transparency and reporting dashboard.</p>
-            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-            <span class="badge">Coming Soon</span>
-          </div>
-          <div class="card">
-            <h3>Rights Protector (Grievance Mechanism)</h3>
-            <p>A secure, AI-powered grievance mechanism for reporting human rights issues in supply chains. Enables confidential and anonymous reporting.</p>
-            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-            <span class="badge">Coming Soon</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- CTA: Corporate -->
-      <div class="audience-cta">
-        <a href="https://navisignal.lemonsqueezy.com/checkout/buy/83025b45-4c46-461b-9a96-135e74cbccf3" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Run the RACI Tool</a>
-        <a href="#free-tools" class="btn btn-outline">See the demo</a>
-      </div>
-
-    </div>
-
-    <!-- ====== HUMANITARIAN VIEW ====== -->
-    <div id="view-humanitarian" class="audience-view">
-
-      <!-- Layer 1: Decision Readiness -->
-      <div class="lifecycle-group">
-        <h3 class="lifecycle-heading">Decision Readiness</h3>
-        <p class="lifecycle-desc">Early-stage tools that help teams decide whether to pursue opportunities and define performance logic.</p>
-        <div class="card-grid">
-          <div class="card">
-            <h3>Proposal Go / No-Go Tool</h3>
-            <p>A structured proposal go/no-go decision tool that helps NGOs, non-profits and consulting firms evaluate bid opportunities, assess risks, and decide whether to pursue proposals.</p>
-            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-            <span class="badge">Coming Soon</span>
-          </div>
-          <div class="card">
-            <h3>M&amp;E Indicator Generator by Sector</h3>
-            <p>Generate sector-specific sustainability KPIs to track and report on ESG performance aligned with industry standards and frameworks.</p>
-            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-            <span class="badge">Coming Soon</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Layer 2: Compliance & Structure Design -->
-      <div class="lifecycle-group">
-        <h3 class="lifecycle-heading">Compliance &amp; Structure Design</h3>
-        <p class="lifecycle-desc">Tools that support proposal structuring and donor compliance requirements.</p>
-        <div class="card-grid">
-          <div class="card">
-            <h3>Proposal Compliance Matrix Generator</h3>
-            <p>Automatically generate compliance matrices from RFP requirements to ensure your proposals meet every specification and evaluation criterion.</p>
-            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-            <span class="badge">Coming Soon</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Layer 3: Monitoring & Accountability -->
-      <div class="lifecycle-group">
-        <h3 class="lifecycle-heading">Monitoring &amp; Accountability</h3>
-        <p class="lifecycle-desc">Performance tracking and reporting tools for humanitarian and development programs.</p>
-        <div class="card-grid">
-          <div class="card card--placeholder">
-            <h3>TBD</h3>
-            <p>Additional monitoring and accountability tools for humanitarian and development teams are in development.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- CTA: Humanitarian -->
-      <div class="audience-cta">
-        <a href="https://navisignal.lemonsqueezy.com/checkout/buy/c5bc07c5-ae18-4376-bd12-ebf3cd409dfc" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get the Advanced Logframe</a>
-        <a href="demo-logframe.html" class="btn btn-outline">See the demo</a>
-      </div>
-
-    </div>
-
-    <!-- Waitlist (shared) -->
-    <div style="max-width: 560px; margin: 2rem auto 1rem;">
-      <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap; justify-content:center; margin-bottom:1rem;">
-        <p class="body" style="margin:0;">New pilots are released through controlled deployments.</p>
-        <a href="https://airtable.com/appAVqNudlDB7FCxO/pagTRYnZD5Uiq7KDe/form" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="white-space:nowrap; flex-shrink:0;">
-          Join the Waitlist
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-      <p class="body" style="margin:0 0 0.5rem;">Join the waitlist to:</p>
-      <ul style="list-style:none; padding:0; margin:0;">
-        <li style="padding:0.25rem 0; display:flex; align-items:center; gap:0.5rem;"><span style="color:#4a7fe8; font-size:1.1rem;">&#9679;</span> access early versions</li>
-        <li style="padding:0.25rem 0; display:flex; align-items:center; gap:0.5rem;"><span style="color:#4a7fe8; font-size:1.1rem;">&#9679;</span> influence development priorities</li>
-        <li style="padding:0.25rem 0; display:flex; align-items:center; gap:0.5rem;"><span style="color:#4a7fe8; font-size:1.1rem;">&#9679;</span> participate in institutional pilot programs</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Audience filter + accordion script -->
-  <script>
-    function switchAudience(audience) {
-      // Sync Solutions toggle buttons
-      document.querySelectorAll('.audience-btn').forEach(function(btn) {
-        btn.classList.toggle('active', btn.dataset.audience === audience);
-      });
-      // Sync Solutions card views
-      document.querySelectorAll('.audience-view').forEach(function(view) {
-        view.classList.toggle('active', view.id === 'view-' + audience);
-      });
-      // Sync Start Here entry buttons
-      document.querySelectorAll('.audience-entry-btn').forEach(function(btn) {
-        btn.classList.toggle('active', btn.dataset.audience === audience);
-      });
-      // Sync Start Here accordion views
-      document.querySelectorAll('.accordion-view').forEach(function(view) {
-        view.classList.toggle('active', view.id === 'accordion-' + audience);
-      });
-    }
-
-    function toggleAccordion(trigger) {
-      var group = trigger.parentElement;
-      group.classList.toggle('open');
-    }
-  </script>
-
-  <hr class="divider" />
-
-  <!-- ============================================================
-       FREE TOOLS — Copy a card block, paste it inside the grid, done.
-       ============================================================
-
-       TEMPLATE — basic (copy between the dashed lines):
-       - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-       <div class="card free-tool-card">
-         <h3>TOOL NAME</h3>
-         <a href="LEMON_SQUEEZY_LINK" class="lemonsqueezy-button btn btn-primary">Get My Download</a>
-       </div>
-       - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-       TEMPLATE — with live demo embed (copy between the dashed lines):
-       - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-       <div class="card free-tool-card free-tool-card--wide">
-         <h3>TOOL NAME</h3>
-         <div class="airtable-demo-wrapper">
-           <p class="demo-label">Live Demo</p>
-           <iframe class="airtable-embed" src="AIRTABLE_EMBED_URL" frameborder="0" width="100%" height="533" style="background: transparent;"></iframe>
-         </div>
-         <a href="LEMON_SQUEEZY_LINK" class="lemonsqueezy-button btn btn-primary" target="_blank" rel="noopener noreferrer">Get My Download</a>
-       </div>
-       - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  -->
-  <section id="free-tools" class="section-centered">
-    <p class="section-tag">Free Tools</p>
+  <!-- Start Here — Free Entry Step -->
+  <section id="start-here" class="section-centered">
+    <p class="section-tag">Start here</p>
+    <p style="max-width:42rem; margin:0 auto 2rem; font-size:1rem; line-height:1.8; color:var(--muted-foreground);">
+      Structure your first decision before moving into deeper readiness diagnostics.
+    </p>
 
     <div class="free-tool-grid">
-
       <div class="card free-tool-card">
         <h3>Monitoring and Evaluation SMART Logframe for NGOs</h3>
-        <p>Create advanced and 'smart' results-based logframes for NGO projects. Track indicators with automated flags to stay on track. Aligned with general donor reporting standards and M&E best practices.</p>
+        <p>Create advanced and 'smart' results-based logframes for NGO projects. Track indicators with automated flags to stay on track. Aligned with general donor reporting standards and M&amp;E best practices.</p>
         <a href="demo-logframe.html" class="btn btn-outline">Live Demo</a>
         <a href="https://navisignal.lemonsqueezy.com/checkout/buy/c5bc07c5-ae18-4376-bd12-ebf3cd409dfc" class="lemonsqueezy-button btn btn-primary" target="_blank" rel="noopener noreferrer">Get My Download</a>
       </div>
@@ -443,28 +1048,293 @@
         <p>Quickly map human rights-based roles and responsibilities across your team or project with a clear Responsible, Accountable, Consulted, and Informed framework.</p>
         <a href="https://navisignal.lemonsqueezy.com/checkout/buy/83025b45-4c46-461b-9a96-135e74cbccf3" class="lemonsqueezy-button btn btn-primary" target="_blank" rel="noopener noreferrer">Get My Download</a>
       </div>
+    </div>
 
+    <p class="helper-text">These tools help teams organise decision logic before running advanced readiness diagnostics.</p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- System Explanation — A structured decision journey -->
+  <section class="section" style="text-align:center;">
+    <h2 class="section-heading">A structured decision journey</h2>
+    <div class="lifecycle-phases">
+      <span class="phase-label">Structure</span>
+      <span class="phase-arrow">&rarr;</span>
+      <span class="phase-label">Diagnose</span>
+      <span class="phase-arrow">&rarr;</span>
+      <span class="phase-label">Monitor</span>
+    </div>
+    <p style="max-width:42rem; margin:0 auto; font-size:1rem; line-height:1.8; color:var(--muted-foreground);">
+      Navisignal tools help teams move from initial decision structuring to risk visibility and ongoing accountability.
+    </p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Who is this for? — Audience Self-Select -->
+  <section id="who-is-this-for" class="section-centered">
+    <p class="section-tag">Who is this for?</p>
+    <p style="max-width:42rem; margin:0 auto 2rem; font-size:1rem; line-height:1.8; color:var(--muted-foreground);">
+      Select your team type to explore relevant tools.
+    </p>
+
+    <div class="audience-cards">
+      <div class="audience-card" data-audience="corporate" onclick="selectAudience('corporate')">
+        <h3>Corporate Sustainability Teams</h3>
+        <div class="audience-card-tags">
+          <span class="audience-card-tag">Supplier Readiness</span>
+          <span class="audience-card-tag">CSRD / CSDDD</span>
+          <span class="audience-card-tag">Human Rights Due Diligence</span>
+        </div>
+      </div>
+
+      <div class="audience-card" data-audience="humanitarian" onclick="selectAudience('humanitarian')">
+        <h3>Humanitarian &amp; Development Teams</h3>
+        <div class="audience-card-tags">
+          <span class="audience-card-tag">Go / No-Go Decisions</span>
+          <span class="audience-card-tag">Logframes</span>
+          <span class="audience-card-tag">Proposal Compliance</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <hr class="divider" />
 
-  <!-- ============================================================
-       RESOURCES — Copy a card block, paste it inside this section, done.
-       ============================================================
+  <!-- Solutions / Tool Catalogue -->
+  <section id="solutions" class="solutions-section">
+    <p class="section-tag">Solutions</p>
 
-       TEMPLATE (copy between the dashed lines):
-       - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-       <div class="resource-card">
-         <h3>RESOURCE NAME</h3>
-         <p>Short description of the resource.</p>
-         <div class="affiliate-link-wrapper">
-           <a href="AFFILIATE_LINK" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Visit RESOURCE NAME</a>
-         </div>
-         <a href="affiliate-disclosure.html" class="affiliate-tag">Affiliate link</a>
-       </div>
-       - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  -->
+    <!-- ====== CORPORATE VIEW ====== -->
+    <div id="solutions-corporate" class="solutions-view active">
+
+      <!-- Decision Readiness -->
+      <div class="solution-accordion open">
+        <button class="solution-accordion-trigger" onclick="toggleSolutionAccordion(this)">
+          <span>Decision Readiness</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="solution-accordion-panel">
+          <div class="solution-accordion-panel-inner">
+            <p class="solution-accordion-desc">Early-stage tools that help organizations evaluate readiness, supplier exposure, and risk prioritization.</p>
+            <div class="solution-card-grid">
+              <div class="card">
+                <h3>Sustainability Supplier Readiness Tool</h3>
+                <p>This supplier assessment tool helps companies identify risks and prepare suppliers for regulations like CSRD, sustainability and supply chain due diligence.</p>
+                <span class="badge">Coming Soon</span>
+              </div>
+              <div class="card">
+                <h3>Supplier / Partner Risk Assessment Tool</h3>
+                <p>Screen and assess supplier and partner risks across ESG, financial, and operational dimensions to strengthen your due diligence process.</p>
+                <span class="badge">Coming Soon</span>
+              </div>
+              <div class="card">
+                <h3>KPI Generator by Sector</h3>
+                <p>Generate sector-specific sustainability KPIs to track and report on ESG performance aligned with industry standards and frameworks.</p>
+                <span class="badge">Coming Soon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compliance & Structure Design -->
+      <div class="solution-accordion">
+        <button class="solution-accordion-trigger" onclick="toggleSolutionAccordion(this)">
+          <span>Compliance &amp; Structure Design</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="solution-accordion-panel">
+          <div class="solution-accordion-panel-inner">
+            <p class="solution-accordion-desc">Mid-stage tools that help organizations design governance, build compliance systems, and structure due diligence.</p>
+            <div class="solution-card-grid">
+              <div class="card">
+                <h3>HRDD Responsibility Mapping Tool</h3>
+                <p>Map human rights due diligence responsibilities across your organisation and supply chain, aligned with UNGPs and EU CSDDD requirements.</p>
+                <span class="badge">Coming Soon</span>
+              </div>
+              <div class="card">
+                <h3>Proposal Compliance Matrix Generator</h3>
+                <p>Automatically generate compliance matrices from RFP requirements to ensure your proposals meet every specification and evaluation criterion.</p>
+                <span class="badge">Coming Soon</span>
+              </div>
+              <div class="card">
+                <h3>LCA Prep Assistant</h3>
+                <p>Prepare for Life Cycle Assessments with guided data collection, scope definition, and documentation aligned with ISO 14040/14044 standards.</p>
+                <span class="badge">Coming Soon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Monitoring & Accountability -->
+      <div class="solution-accordion">
+        <button class="solution-accordion-trigger" onclick="toggleSolutionAccordion(this)">
+          <span>Monitoring &amp; Accountability</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="solution-accordion-panel">
+          <div class="solution-accordion-panel-inner">
+            <p class="solution-accordion-desc">Tools that help track ESG performance, manage supply chain visibility, and demonstrate accountability.</p>
+            <div class="solution-card-grid">
+              <div class="card">
+                <h3>Supplier Sustainability MRV Tool</h3>
+                <p>Measure, report, and verify supplier sustainability performance with a structured MRV framework for supply chain transparency.</p>
+                <span class="badge">Coming Soon</span>
+              </div>
+              <div class="card">
+                <h3>Supply Chain Transparency &amp; Governance Tool</h3>
+                <p>Map supply chains, track compliance, and manage governance across tiers with a comprehensive transparency and reporting dashboard.</p>
+                <span class="badge">Coming Soon</span>
+              </div>
+              <div class="card">
+                <h3>Rights Protector (Grievance Mechanism)</h3>
+                <p>A secure, AI-powered grievance mechanism for reporting human rights issues in supply chains. Enables confidential and anonymous reporting.</p>
+                <span class="badge">Coming Soon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA: Corporate -->
+      <div class="audience-cta">
+        <a href="https://navisignal.lemonsqueezy.com/checkout/buy/83025b45-4c46-461b-9a96-135e74cbccf3" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Run the RACI Tool</a>
+        <a href="#start-here" class="btn btn-outline">See the demo</a>
+      </div>
+
+    </div>
+
+    <!-- ====== HUMANITARIAN VIEW ====== -->
+    <div id="solutions-humanitarian" class="solutions-view">
+
+      <!-- Decision Readiness -->
+      <div class="solution-accordion open">
+        <button class="solution-accordion-trigger" onclick="toggleSolutionAccordion(this)">
+          <span>Decision Readiness</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="solution-accordion-panel">
+          <div class="solution-accordion-panel-inner">
+            <p class="solution-accordion-desc">Early-stage tools that help teams decide whether to pursue opportunities and define performance logic.</p>
+            <div class="solution-card-grid">
+              <div class="card">
+                <h3>Proposal Go / No-Go Tool</h3>
+                <p>A structured proposal go/no-go decision tool that helps NGOs, non-profits and consulting firms evaluate bid opportunities, assess risks, and decide whether to pursue proposals.</p>
+                <span class="badge">Coming Soon</span>
+              </div>
+              <div class="card">
+                <h3>M&amp;E Indicator Generator by Sector</h3>
+                <p>Generate sector-specific sustainability KPIs to track and report on ESG performance aligned with industry standards and frameworks.</p>
+                <span class="badge">Coming Soon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compliance & Structure Design -->
+      <div class="solution-accordion">
+        <button class="solution-accordion-trigger" onclick="toggleSolutionAccordion(this)">
+          <span>Compliance &amp; Structure Design</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="solution-accordion-panel">
+          <div class="solution-accordion-panel-inner">
+            <p class="solution-accordion-desc">Tools that support proposal structuring and donor compliance requirements.</p>
+            <div class="solution-card-grid">
+              <div class="card">
+                <h3>Proposal Compliance Matrix Generator</h3>
+                <p>Automatically generate compliance matrices from RFP requirements to ensure your proposals meet every specification and evaluation criterion.</p>
+                <span class="badge">Coming Soon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Monitoring & Accountability -->
+      <div class="solution-accordion">
+        <button class="solution-accordion-trigger" onclick="toggleSolutionAccordion(this)">
+          <span>Monitoring &amp; Accountability</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="solution-accordion-panel">
+          <div class="solution-accordion-panel-inner">
+            <p class="solution-accordion-desc">Performance tracking and reporting tools for humanitarian and development programs.</p>
+            <div class="solution-card-grid">
+              <div class="card card--placeholder">
+                <h3>TBD</h3>
+                <p>Additional monitoring and accountability tools for humanitarian and development teams are in development.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA: Humanitarian -->
+      <div class="audience-cta">
+        <a href="https://navisignal.lemonsqueezy.com/checkout/buy/c5bc07c5-ae18-4376-bd12-ebf3cd409dfc" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get the Advanced Logframe</a>
+        <a href="demo-logframe.html" class="btn btn-outline">See the demo</a>
+      </div>
+
+    </div>
+
+    <!-- Waitlist (shared, inside Solutions) -->
+    <div style="max-width: 560px; margin: 2rem auto 1rem;">
+      <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap; justify-content:center; margin-bottom:1rem;">
+        <p class="body" style="margin:0; font-size:1rem; color:var(--muted-foreground);">New pilots are released through controlled deployments.</p>
+        <a href="https://airtable.com/appAVqNudlDB7FCxO/pagTRYnZD5Uiq7KDe/form" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="white-space:nowrap; flex-shrink:0;">
+          Join the Waitlist
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <p style="margin:0 0 0.5rem; font-size:1rem; color:var(--muted-foreground);">Join the waitlist to:</p>
+      <ul style="list-style:none; padding:0; margin:0;">
+        <li style="padding:0.25rem 0; display:flex; align-items:center; gap:0.5rem; color:var(--muted-foreground);"><span style="color:#4a7fe8; font-size:1.1rem;">&#9679;</span> access early versions</li>
+        <li style="padding:0.25rem 0; display:flex; align-items:center; gap:0.5rem; color:var(--muted-foreground);"><span style="color:#4a7fe8; font-size:1.1rem;">&#9679;</span> influence development priorities</li>
+        <li style="padding:0.25rem 0; display:flex; align-items:center; gap:0.5rem; color:var(--muted-foreground);"><span style="color:#4a7fe8; font-size:1.1rem;">&#9679;</span> participate in institutional pilot programs</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Credibility Section — When teams use Navisignal -->
+  <section id="credibility" class="section">
+    <p class="section-tag">When teams use Navisignal</p>
+
+    <div class="credibility-grid">
+      <div>
+        <h3>Decision scenarios</h3>
+        <ul>
+          <li><span class="bullet"></span>Evaluating whether to bid on a complex donor-funded proposal</li>
+          <li><span class="bullet"></span>Assessing supplier readiness for CSRD and CSDDD compliance</li>
+          <li><span class="bullet"></span>Mapping human rights due diligence responsibilities across tiers</li>
+          <li><span class="bullet"></span>Structuring go/no-go decisions under time and resource pressure</li>
+          <li><span class="bullet"></span>Designing M&amp;E frameworks aligned with donor reporting standards</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Output types</h3>
+        <ul>
+          <li><span class="bullet"></span>Structured logframes with automated indicator tracking</li>
+          <li><span class="bullet"></span>RACI matrices for governance and accountability</li>
+          <li><span class="bullet"></span>Compliance matrices mapped to RFP requirements</li>
+          <li><span class="bullet"></span>Risk assessment scorecards for suppliers and partners</li>
+          <li><span class="bullet"></span>Decision briefs for institutional review and sign-off</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="credibility-closing">All outputs structured for institutional review.</p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Partner Resources -->
   <section id="resources" class="section">
     <p class="section-tag">Partner Resources</p>
 
@@ -476,7 +1346,29 @@
       </div>
       <a href="affiliate-disclosure.html" class="affiliate-tag">Affiliate link</a>
     </div>
+  </section>
 
+  <hr class="divider" />
+
+  <!-- Early Access / Waitlist CTA -->
+  <section class="section-centered">
+    <p class="section-tag">Early Access</p>
+    <h2 class="section-heading">Request access to decision tools</h2>
+
+    <div class="waitlist-section">
+      <p class="body">New pilots are released through controlled deployments. Join the waitlist to get early access and shape the tools your team needs.</p>
+
+      <ul class="waitlist-perks">
+        <li><span>&#9679;</span> Access early versions</li>
+        <li><span>&#9679;</span> Influence development priorities</li>
+        <li><span>&#9679;</span> Participate in institutional pilot programs</li>
+      </ul>
+
+      <a href="https://airtable.com/appAVqNudlDB7FCxO/pagTRYnZD5Uiq7KDe/form" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        Join the Waitlist
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
   </section>
 
   <hr class="divider" />
@@ -502,6 +1394,31 @@
     </p>
     <p class="copyright">&copy; 2026 JMPetrus Consulting. All rights reserved.</p>
   </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Audience selection and filtering
+    function selectAudience(audience) {
+      // Highlight selected card
+      document.querySelectorAll('.audience-card').forEach(function(card) {
+        card.classList.toggle('selected', card.dataset.audience === audience);
+      });
+
+      // Switch solutions view
+      document.querySelectorAll('.solutions-view').forEach(function(view) {
+        view.classList.toggle('active', view.id === 'solutions-' + audience);
+      });
+
+      // Smooth scroll to solutions
+      document.getElementById('solutions').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Solutions accordion toggle
+    function toggleSolutionAccordion(trigger) {
+      var accordion = trigger.parentElement;
+      accordion.classList.toggle('open');
+    }
+  </script>
 
 </body>
 </html>
