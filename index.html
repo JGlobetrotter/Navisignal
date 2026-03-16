@@ -140,107 +140,164 @@
   <hr class="divider" />
 
   <!-- ============================================================
-       PRODUCTS — Copy a card block, paste it inside the grid, done.
-       ============================================================
-
-       TEMPLATE (copy everything between the dashed lines):
-       - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-       <div class="card">
-         <h3>PRODUCT NAME</h3>
-         <p>Short product description.</p>
-         <a href="LEMON_SQUEEZY_LINK" class="btn btn-primary" hidden>Buy Now</a>
-         <span class="badge">Coming Soon</span>
-         ↑ TO GO LIVE: 1) remove hidden from Buy Now  2) delete Coming Soon line
-       </div>
-       - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  -->
+       PRODUCTS — Audience-filtered, lifecycle-grouped tool system
+       ============================================================ -->
   <section id="products" class="section-centered">
     <p class="section-tag">Solutions</p>
 
-    <div class="card-grid">
+    <!-- Audience toggle -->
+    <div class="audience-toggle">
+      <button class="audience-btn active" data-audience="corporate" onclick="switchAudience('corporate')">For Corporate Sustainability Teams</button>
+      <button class="audience-btn" data-audience="humanitarian" onclick="switchAudience('humanitarian')">For Humanitarian &amp; Development Teams</button>
+    </div>
 
-      <div class="card">
-        <h3>Sustainability Supplier Readiness Tool</h3>
-        <p>This supplier assessment tool helps companies identify risks and prepare suppliers for regulations like CSRD, sustainability and supply chain due diligence.</p>
-        <!-- GO LIVE: 1) paste your Lemon Squeezy link in href  2) remove "hidden"  3) delete the Coming Soon line -->
-        <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-        <span class="badge">Coming Soon</span>
+    <!-- ====== CORPORATE VIEW ====== -->
+    <div id="view-corporate" class="audience-view active">
+
+      <!-- Layer 1: Decision Readiness -->
+      <div class="lifecycle-group">
+        <h3 class="lifecycle-heading">Decision Readiness</h3>
+        <p class="lifecycle-desc">Early-stage tools that help organizations evaluate readiness, supplier exposure, and risk prioritization.</p>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Sustainability Supplier Readiness Tool</h3>
+            <p>This supplier assessment tool helps companies identify risks and prepare suppliers for regulations like CSRD, sustainability and supply chain due diligence.</p>
+            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
+            <span class="badge">Coming Soon</span>
+          </div>
+          <div class="card">
+            <h3>Supplier / Partner Risk Assessment Tool</h3>
+            <p>Screen and assess supplier and partner risks across ESG, financial, and operational dimensions to strengthen your due diligence process.</p>
+            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
+            <span class="badge">Coming Soon</span>
+          </div>
+          <div class="card">
+            <h3>KPI Generator by Sector</h3>
+            <p>Generate sector-specific sustainability KPIs to track and report on ESG performance aligned with industry standards and frameworks.</p>
+            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
+            <span class="badge">Coming Soon</span>
+          </div>
+        </div>
       </div>
 
-      <div class="card">
-        <h3>Proposal Go / No-Go Tool</h3>
-        <p>A structured proposal go/no-go decision tool that helps NGOs, non-profits and consulting firms evaluate bid opportunities, assess risks, and decide whether to pursue proposals.</p>
-        <!-- GO LIVE: 1) paste your Lemon Squeezy link in href  2) remove "hidden"  3) delete the Coming Soon line -->
-        <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-        <span class="badge">Coming Soon</span>
+      <!-- Layer 2: Compliance & Structure Design -->
+      <div class="lifecycle-group">
+        <h3 class="lifecycle-heading">Compliance &amp; Structure Design</h3>
+        <p class="lifecycle-desc">Mid-stage tools that help organizations design governance, build compliance systems, and structure due diligence.</p>
+        <div class="card-grid">
+          <div class="card">
+            <h3>HRDD Responsibility Mapping Tool</h3>
+            <p>Map human rights due diligence responsibilities across your organisation and supply chain, aligned with UNGPs and EU CSDDD requirements.</p>
+            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
+            <span class="badge">Coming Soon</span>
+          </div>
+          <div class="card">
+            <h3>Proposal Compliance Matrix Generator</h3>
+            <p>Automatically generate compliance matrices from RFP requirements to ensure your proposals meet every specification and evaluation criterion.</p>
+            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
+            <span class="badge">Coming Soon</span>
+          </div>
+          <div class="card">
+            <h3>LCA Prep Assistant</h3>
+            <p>Prepare for Life Cycle Assessments with guided data collection, scope definition, and documentation aligned with ISO 14040/14044 standards.</p>
+            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
+            <span class="badge">Coming Soon</span>
+          </div>
+        </div>
       </div>
 
-      <div class="card">
-        <h3>HRDD Responsibility Mapping Tool</h3>
-        <p>Map human rights due diligence responsibilities across your organisation and supply chain, aligned with UNGPs and EU CSDDD requirements.</p>
-        <!-- GO LIVE: 1) paste your Lemon Squeezy link in href  2) remove "hidden"  3) delete the Coming Soon line -->
-        <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-        <span class="badge">Coming Soon</span>
+      <!-- Layer 3: Monitoring & Accountability -->
+      <div class="lifecycle-group">
+        <h3 class="lifecycle-heading">Monitoring &amp; Accountability</h3>
+        <p class="lifecycle-desc">Tools that help track ESG performance, manage supply chain visibility, and demonstrate accountability.</p>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Supplier Sustainability MRV Tool</h3>
+            <p>Measure, report, and verify supplier sustainability performance with a structured MRV framework for supply chain transparency.</p>
+            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
+            <span class="badge">Coming Soon</span>
+          </div>
+          <div class="card">
+            <h3>Supply Chain Transparency &amp; Governance Tool</h3>
+            <p>Map supply chains, track compliance, and manage governance across tiers with a comprehensive transparency and reporting dashboard.</p>
+            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
+            <span class="badge">Coming Soon</span>
+          </div>
+          <div class="card">
+            <h3>Rights Protector (Grievance Mechanism)</h3>
+            <p>A secure, AI-powered grievance mechanism for reporting human rights issues in supply chains. Enables confidential and anonymous reporting.</p>
+            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
+            <span class="badge">Coming Soon</span>
+          </div>
+        </div>
       </div>
 
-      <div class="card">
-        <h3>KPI Generator by Sector</h3>
-        <p>Generate sector-specific sustainability KPIs to track and report on ESG performance aligned with industry standards and frameworks.</p>
-        <!-- GO LIVE: 1) paste your Lemon Squeezy link in href  2) remove "hidden"  3) delete the Coming Soon line -->
-        <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-        <span class="badge">Coming Soon</span>
-      </div>
-
-      <div class="card">
-        <h3>Rights Protector: Client Grievance Mechanism</h3>
-        <p>A secure, AI-powered grievance mechanism for reporting human rights issues in supply chains. Enables confidential and anonymous reporting.</p>
-        <!-- GO LIVE: 1) paste your Lemon Squeezy link in href  2) remove "hidden"  3) delete the Coming Soon line -->
-        <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-        <span class="badge">Coming Soon</span>
-      </div>
-
-      <div class="card">
-        <h3>Proposal Compliance Matrix Generator</h3>
-        <p>Automatically generate compliance matrices from RFP requirements to ensure your proposals meet every specification and evaluation criterion.</p>
-        <!-- GO LIVE: 1) paste your Lemon Squeezy link in href  2) remove "hidden"  3) delete the Coming Soon line -->
-        <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-        <span class="badge">Coming Soon</span>
-      </div>
-
-      <div class="card">
-        <h3>LCA Prep Assistant</h3>
-        <p>Prepare for Life Cycle Assessments with guided data collection, scope definition, and documentation aligned with ISO 14040/14044 standards.</p>
-        <!-- GO LIVE: 1) paste your Lemon Squeezy link in href  2) remove "hidden"  3) delete the Coming Soon line -->
-        <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-        <span class="badge">Coming Soon</span>
-      </div>
-
-      <div class="card">
-        <h3>Supplier / Partner Risk Assessment Tool</h3>
-        <p>Screen and assess supplier and partner risks across ESG, financial, and operational dimensions to strengthen your due diligence process.</p>
-        <!-- GO LIVE: 1) paste your Lemon Squeezy link in href  2) remove "hidden"  3) delete the Coming Soon line -->
-        <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-        <span class="badge">Coming Soon</span>
-      </div>
-
-      <div class="card">
-        <h3>Supplier Sustainability MRV Tool</h3>
-        <p>Measure, report, and verify supplier sustainability performance with a structured MRV framework for supply chain transparency.</p>
-        <!-- GO LIVE: 1) paste your Lemon Squeezy link in href  2) remove "hidden"  3) delete the Coming Soon line -->
-        <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-        <span class="badge">Coming Soon</span>
-      </div>
-
-      <div class="card">
-        <h3>Supply Chain Transparency &amp; Governance Tool</h3>
-        <p>Map supply chains, track compliance, and manage governance across tiers with a comprehensive transparency and reporting dashboard.</p>
-        <!-- GO LIVE: 1) paste your Lemon Squeezy link in href  2) remove "hidden"  3) delete the Coming Soon line -->
-        <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
-        <span class="badge">Coming Soon</span>
+      <!-- CTA: Corporate -->
+      <div class="audience-cta">
+        <a href="https://navisignal.lemonsqueezy.com/checkout/buy/83025b45-4c46-461b-9a96-135e74cbccf3" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Run the RACI Tool</a>
+        <a href="#free-tools" class="btn btn-outline">See the demo</a>
       </div>
 
     </div>
 
+    <!-- ====== HUMANITARIAN VIEW ====== -->
+    <div id="view-humanitarian" class="audience-view">
+
+      <!-- Layer 1: Decision Readiness -->
+      <div class="lifecycle-group">
+        <h3 class="lifecycle-heading">Decision Readiness</h3>
+        <p class="lifecycle-desc">Early-stage tools that help teams decide whether to pursue opportunities and define performance logic.</p>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Proposal Go / No-Go Tool</h3>
+            <p>A structured proposal go/no-go decision tool that helps NGOs, non-profits and consulting firms evaluate bid opportunities, assess risks, and decide whether to pursue proposals.</p>
+            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
+            <span class="badge">Coming Soon</span>
+          </div>
+          <div class="card">
+            <h3>M&amp;E Indicator Generator by Sector</h3>
+            <p>Generate sector-specific sustainability KPIs to track and report on ESG performance aligned with industry standards and frameworks.</p>
+            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
+            <span class="badge">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layer 2: Compliance & Structure Design -->
+      <div class="lifecycle-group">
+        <h3 class="lifecycle-heading">Compliance &amp; Structure Design</h3>
+        <p class="lifecycle-desc">Tools that support proposal structuring and donor compliance requirements.</p>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Proposal Compliance Matrix Generator</h3>
+            <p>Automatically generate compliance matrices from RFP requirements to ensure your proposals meet every specification and evaluation criterion.</p>
+            <a href="YOUR_LEMONSQUEEZY_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer" hidden>Buy Now</a>
+            <span class="badge">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layer 3: Monitoring & Accountability -->
+      <div class="lifecycle-group">
+        <h3 class="lifecycle-heading">Monitoring &amp; Accountability</h3>
+        <p class="lifecycle-desc">Performance tracking and reporting tools for humanitarian and development programs.</p>
+        <div class="card-grid">
+          <div class="card card--placeholder">
+            <h3>TBD</h3>
+            <p>Additional monitoring and accountability tools for humanitarian and development teams are in development.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA: Humanitarian -->
+      <div class="audience-cta">
+        <a href="https://navisignal.lemonsqueezy.com/checkout/buy/c5bc07c5-ae18-4376-bd12-ebf3cd409dfc" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get the Advanced Logframe</a>
+        <a href="demo-logframe.html" class="btn btn-outline">See the demo</a>
+      </div>
+
+    </div>
+
+    <!-- Waitlist (shared) -->
     <div style="max-width: 560px; margin: 2rem auto 1rem;">
       <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap; justify-content:center; margin-bottom:1rem;">
         <p class="body" style="margin:0;">New pilots are released through controlled deployments.</p>
@@ -257,6 +314,18 @@
       </ul>
     </div>
   </section>
+
+  <!-- Audience filter script -->
+  <script>
+    function switchAudience(audience) {
+      document.querySelectorAll('.audience-btn').forEach(function(btn) {
+        btn.classList.toggle('active', btn.dataset.audience === audience);
+      });
+      document.querySelectorAll('.audience-view').forEach(function(view) {
+        view.classList.toggle('active', view.id === 'view-' + audience);
+      });
+    }
+  </script>
 
   <hr class="divider" />
 
