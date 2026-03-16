@@ -333,13 +333,173 @@ ul {
   }
 }
 
-/* === Start Here grey box === */
-.start-here-box {
-  background: #1a1a1e;
+/* === Start Here entry section === */
+.start-here-section {
+  text-align: left;
+}
+
+.start-here-body {
+  max-width: 42rem;
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+}
+
+.start-here-body strong {
+  color: var(--foreground);
+}
+
+.start-here-body a {
+  color: var(--primary);
+}
+
+.start-here-body a:hover {
+  text-decoration: underline;
+}
+
+/* === Audience Entry Buttons === */
+.audience-entry {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.audience-entry-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 2rem 2.5rem;
-  margin-top: 1rem;
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.audience-entry-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.audience-entry-btn:hover {
+  border-color: var(--primary);
+  color: var(--foreground);
+}
+
+.audience-entry-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.audience-entry-btn.active svg {
+  transform: rotate(90deg);
+}
+
+/* === Accordion Views === */
+.accordion-view {
+  display: none;
+  max-width: 42rem;
+  margin-bottom: 1rem;
+}
+
+.accordion-view.active {
+  display: block;
+}
+
+.accordion-group {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--foreground);
+  background: var(--card);
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+  text-align: left;
+}
+
+.accordion-trigger:hover {
+  color: var(--primary);
+}
+
+.accordion-trigger svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform 0.25s;
+  color: var(--muted-foreground);
+}
+
+.accordion-group.open .accordion-trigger svg {
+  transform: rotate(180deg);
+}
+
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: var(--background);
+}
+
+.accordion-group.open .accordion-panel {
+  max-height: 20rem;
+}
+
+.accordion-panel ul {
+  padding: 0.75rem 1.25rem 1rem;
+}
+
+.accordion-panel li {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+  padding: 0.25rem 0;
+}
+
+.accordion-tbd {
+  color: var(--muted-foreground);
+  opacity: 0.5;
+  font-style: italic;
+}
+
+/* Audience CTA within Start Here */
+.accordion-view .audience-cta {
+  justify-content: flex-start;
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .audience-entry {
+    flex-direction: column;
+  }
+  .audience-entry-btn {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 /* === Resource description === */
