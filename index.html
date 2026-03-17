@@ -189,20 +189,23 @@ ul {
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 0.75rem;
+  padding-top: 0.75rem;
   min-width: 200px;
+  z-index: 60;
+}
+
+.nav-dropdown-menu-inner {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 0.5rem 0;
-  z-index: 60;
 }
 
 .nav-dropdown:hover .nav-dropdown-menu {
   display: block;
 }
 
-.nav-dropdown-menu a {
+.nav-dropdown-menu-inner a {
   display: block;
   padding: 0.5rem 1.25rem;
   font-size: 0.8125rem;
@@ -210,7 +213,7 @@ ul {
   transition: color 0.2s, background 0.2s;
 }
 
-.nav-dropdown-menu a:hover {
+.nav-dropdown-menu-inner a:hover {
   color: var(--foreground);
   background: var(--primary-10);
 }
@@ -1038,15 +1041,19 @@ ul {
         <div class="nav-dropdown">
           <a href="#solutions" class="nav-dropdown-trigger">Solutions</a>
           <div class="nav-dropdown-menu">
-            <a href="#solutions" onclick="selectAudience('corporate')">Corporate Sustainability</a>
-            <a href="#solutions" onclick="selectAudience('humanitarian')">Humanitarian &amp; Development</a>
+            <div class="nav-dropdown-menu-inner">
+              <a href="#solutions" onclick="selectAudience('corporate')">Corporate Sustainability</a>
+              <a href="#solutions" onclick="selectAudience('humanitarian')">Humanitarian &amp; Development</a>
+            </div>
           </div>
         </div>
         <div class="nav-dropdown">
           <a href="#free-tools" class="nav-dropdown-trigger">Resources</a>
           <div class="nav-dropdown-menu">
-            <a href="#free-tools">Free Tools</a>
-            <a href="#resources">Partner Resources</a>
+            <div class="nav-dropdown-menu-inner">
+              <a href="#free-tools">Free Tools</a>
+              <a href="#resources">Partner Resources</a>
+            </div>
           </div>
         </div>
         <a href="#waitlist">Waitlist</a>
