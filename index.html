@@ -175,6 +175,57 @@ ul {
   height: 24px;
 }
 
+/* Nav dropdowns */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-trigger {
+  cursor: pointer;
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.75rem;
+  min-width: 200px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.5rem 0;
+  z-index: 60;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+  display: block;
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-dropdown-menu a:hover {
+  color: var(--foreground);
+  background: var(--primary-10);
+}
+
+/* Mobile nav labels */
+.mobile-nav-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--primary);
+  margin-top: 0.5rem;
+}
+
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -1003,8 +1054,21 @@ ul {
 
       <nav class="nav-links">
         <a href="#about">About</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#resources">Partner Resources</a>
+        <div class="nav-dropdown">
+          <a href="#solutions" class="nav-dropdown-trigger">Solutions</a>
+          <div class="nav-dropdown-menu">
+            <a href="#solutions" onclick="selectAudience('corporate')">Corporate Sustainability</a>
+            <a href="#solutions" onclick="selectAudience('humanitarian')">Humanitarian &amp; Development</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#free-tools" class="nav-dropdown-trigger">Resources</a>
+          <div class="nav-dropdown-menu">
+            <a href="#free-tools">Free Tools</a>
+            <a href="#resources">Partner Resources</a>
+          </div>
+        </div>
+        <a href="#waitlist">Waitlist</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -1021,8 +1085,13 @@ ul {
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
       <a href="#about" onclick="document.getElementById('mobile-nav').classList.remove('open')">About</a>
-      <a href="#solutions" onclick="document.getElementById('mobile-nav').classList.remove('open')">Solutions</a>
-      <a href="#resources" onclick="document.getElementById('mobile-nav').classList.remove('open')">Partner Resources</a>
+      <span class="mobile-nav-label">Solutions</span>
+      <a href="#solutions" onclick="selectAudience('corporate'); document.getElementById('mobile-nav').classList.remove('open')" style="padding-left:1rem; font-size:1rem;">Corporate Sustainability</a>
+      <a href="#solutions" onclick="selectAudience('humanitarian'); document.getElementById('mobile-nav').classList.remove('open')" style="padding-left:1rem; font-size:1rem;">Humanitarian &amp; Development</a>
+      <span class="mobile-nav-label">Resources</span>
+      <a href="#free-tools" onclick="document.getElementById('mobile-nav').classList.remove('open')" style="padding-left:1rem; font-size:1rem;">Free Tools</a>
+      <a href="#resources" onclick="document.getElementById('mobile-nav').classList.remove('open')" style="padding-left:1rem; font-size:1rem;">Partner Resources</a>
+      <a href="#waitlist" onclick="document.getElementById('mobile-nav').classList.remove('open')">Waitlist</a>
       <a href="#contact" onclick="document.getElementById('mobile-nav').classList.remove('open')">Contact</a>
     </div>
   </div>
@@ -1374,7 +1443,7 @@ ul {
   <hr class="divider" />
 
   <!-- Early Access / Waitlist CTA (single instance) -->
-  <section class="section-centered">
+  <section id="waitlist" class="section-centered">
     <p class="section-tag">Early Access</p>
     <div class="waitlist-section">
       <p class="body">New pilots are released periodically. Join the waitlist to get early access and participate in shaping the tools your team needs.</p>
