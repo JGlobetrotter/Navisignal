@@ -1,32 +1,54 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <circle cx="50" cy="50" r="48" fill="#1a1f2e" stroke="#c5a44e" stroke-width="2.5"/>
-  <circle cx="50" cy="50" r="42" fill="none" stroke="#c5a44e" stroke-width="1.2"/>
-  <!-- Cardinal points -->
-  <text x="50" y="16" text-anchor="middle" fill="#c5a44e" font-family="serif" font-size="11" font-weight="bold">N</text>
-  <text x="50" y="93" text-anchor="middle" fill="#c5a44e" font-family="serif" font-size="11" font-weight="bold">S</text>
-  <text x="9" y="54" text-anchor="middle" fill="#c5a44e" font-family="serif" font-size="11" font-weight="bold">W</text>
-  <text x="91" y="54" text-anchor="middle" fill="#c5a44e" font-family="serif" font-size="11" font-weight="bold">E</text>
-  <!-- 8-point star compass rose -->
-  <!-- N -->
-  <polygon points="50,20 46,48 50,44 54,48" fill="#c5a44e"/>
-  <polygon points="50,20 46,48 50,52 54,48" fill="#4a5a7a" opacity="0.6"/>
-  <!-- S -->
-  <polygon points="50,80 54,52 50,56 46,52" fill="#c5a44e"/>
-  <polygon points="50,80 54,52 50,48 46,52" fill="#4a5a7a" opacity="0.6"/>
-  <!-- E -->
-  <polygon points="80,50 52,46 56,50 52,54" fill="#c5a44e"/>
-  <polygon points="80,50 52,46 48,50 52,54" fill="#4a5a7a" opacity="0.6"/>
-  <!-- W -->
-  <polygon points="20,50 48,54 44,50 48,46" fill="#c5a44e"/>
-  <polygon points="20,50 48,54 52,50 48,46" fill="#4a5a7a" opacity="0.6"/>
-  <!-- NE -->
-  <polygon points="71,29 53,47 55,49 53,51" fill="#4a5a7a"/>
-  <!-- NW -->
-  <polygon points="29,29 47,47 45,49 47,51" fill="#4a5a7a"/>
-  <!-- SE -->
-  <polygon points="71,71 53,53 55,51 53,49" fill="#4a5a7a"/>
-  <!-- SW -->
-  <polygon points="29,71 47,53 45,51 47,49" fill="#4a5a7a"/>
-  <!-- Center circle -->
-  <circle cx="50" cy="50" r="3" fill="#c5a44e"/>
+  <!-- Background -->
+  <circle cx="50" cy="50" r="49" fill="#0A1C2E"/>
+
+  <!-- Topographic wavy lines (right, background) -->
+  <g fill="none" stroke="#2A3F59" stroke-width="0.7" opacity="0.7">
+    <path d="M52,30 Q60,26 68,30 Q76,34 83,30"/>
+    <path d="M50,39 Q60,34 70,39 Q78,44 84,39"/>
+    <path d="M50,61 Q60,56 70,61 Q78,66 84,61"/>
+    <path d="M52,70 Q62,65 72,70 Q80,75 86,70"/>
+  </g>
+
+  <!-- Vertical dashed guide through star -->
+  <line x1="63" y1="28" x2="63" y2="72" stroke="#E6D6A6" stroke-width="0.5" stroke-dasharray="2,2" opacity="0.5"/>
+
+  <!-- Network edges -->
+  <g fill="none" stroke="#6B778C" stroke-width="0.9" opacity="0.65">
+    <line x1="18" y1="28" x2="13" y2="46"/>
+    <line x1="13" y1="46" x2="23" y2="62"/>
+    <line x1="23" y1="62" x2="27" y2="74"/>
+    <line x1="18" y1="28" x2="31" y2="20"/>
+    <line x1="31" y1="20" x2="38" y2="36"/>
+    <line x1="38" y1="36" x2="13" y2="46"/>
+    <line x1="13" y1="46" x2="9"  y2="54"/>
+    <line x1="18" y1="28" x2="38" y2="36"/>
+    <line x1="38" y1="36" x2="23" y2="62"/>
+  </g>
+
+  <!-- Converging lines to star -->
+  <g fill="none" stroke="#E6D6A6" stroke-width="0.8" opacity="0.55">
+    <line x1="18" y1="28" x2="63" y2="50"/>
+    <line x1="13" y1="46" x2="63" y2="50"/>
+    <line x1="23" y1="62" x2="63" y2="50"/>
+    <line x1="31" y1="20" x2="63" y2="50"/>
+    <line x1="27" y1="74" x2="63" y2="50"/>
+    <line x1="38" y1="36" x2="63" y2="50"/>
+  </g>
+
+  <!-- Network nodes -->
+  <circle cx="18" cy="28" r="3.2" fill="#fafafa"/>
+  <circle cx="13" cy="46" r="2.5" fill="#A6B2BF"/>
+  <circle cx="23" cy="62" r="2.5" fill="#fafafa"/>
+  <circle cx="31" cy="20" r="2"   fill="#6B778C"/>
+  <circle cx="38" cy="36" r="1.8" fill="#6B778C"/>
+  <circle cx="27" cy="74" r="3"   fill="#E6D6A6"/>
+  <circle cx="9"  cy="54" r="1.5" fill="#6B778C"/>
+
+  <!-- 4-pointed star -->
+  <path d="M63,42 L65,48 L71,50 L65,52 L63,58 L61,52 L55,50 L61,48 Z" fill="#E6D6A6"/>
+
+  <!-- Arrow -->
+  <line x1="73" y1="50" x2="81" y2="50" stroke="#E6D6A6" stroke-width="1.5" stroke-linecap="round"/>
+  <polygon points="85,50 80,47 80,53" fill="#E6D6A6"/>
 </svg>
