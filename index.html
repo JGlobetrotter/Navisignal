@@ -582,7 +582,7 @@ ul {
   display: grid;
   gap: 1.5rem;
   max-width: 48rem;
-  margin-bottom: 3rem;
+  margin: 0 auto 3rem;
 }
 
 @media (min-width: 640px) {
@@ -1221,10 +1221,17 @@ ul {
       </p>
     </div>
 
-    <p class="audience-subhead">Navisignal offers two tool tracks: a suite of tools for Corporate Sustainability, complimented by tools designed for humanitarian and international development teams. <span style="color: var(--primary); font-style: italic;">Select your tool track below.</span></p>
+    <p class="audience-subhead">Navisignal offers two tool tracks: a suite of tools for Corporate Sustainability, complimented by tools designed for humanitarian and international development teams.</p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Solutions / Tool Catalogue -->
+  <section id="solutions" class="solutions-section">
+    <p class="section-tag">Who is this for?</p>
 
     <div class="audience-cards">
-      <div class="audience-card" data-audience="corporate" onclick="selectAudience('corporate')">
+      <div class="audience-card selected" data-audience="corporate" onclick="selectAudience('corporate')">
         <h3>Corporate Sustainability Teams</h3>
         <div class="audience-card-tags">
           <span class="audience-card-tag">Supplier Readiness</span>
@@ -1241,18 +1248,6 @@ ul {
           <span class="audience-card-tag">Proposal Compliance</span>
         </div>
       </div>
-    </div>
-  </section>
-
-  <hr class="divider" />
-
-  <!-- Solutions / Tool Catalogue -->
-  <section id="solutions" class="solutions-section">
-    <p class="section-tag">Who is this for?</p>
-
-    <div class="solutions-tabs">
-      <button class="solutions-tab active" data-audience="corporate" onclick="selectAudience('corporate')">Corporate Sustainability Teams</button>
-      <button class="solutions-tab" data-audience="humanitarian" onclick="selectAudience('humanitarian')">Humanitarian &amp; Development Teams</button>
     </div>
 
     <!-- ====== CORPORATE VIEW ====== -->
@@ -1539,18 +1534,10 @@ ul {
         card.classList.toggle('selected', card.dataset.audience === audience);
       });
 
-      // Sync solutions tabs
-      document.querySelectorAll('.solutions-tab').forEach(function(tab) {
-        tab.classList.toggle('active', tab.dataset.audience === audience);
-      });
-
       // Switch solutions view
       document.querySelectorAll('.solutions-view').forEach(function(view) {
         view.classList.toggle('active', view.id === 'solutions-' + audience);
       });
-
-      // Smooth scroll to solutions
-      document.getElementById('solutions').scrollIntoView({ behavior: 'smooth' });
     }
 
     // Solutions accordion toggle
