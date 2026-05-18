@@ -287,36 +287,6 @@ ul {
   color: var(--muted-foreground);
 }
 
-/* Hero anchor buttons — visually pronounced */
-.hero-anchors {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.hero-anchor-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.625rem 1.75rem;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  border: 1px solid var(--primary);
-  border-radius: var(--radius);
-  color: var(--primary);
-  background: transparent;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-}
-
-.hero-anchor-btn:hover {
-  background: var(--primary);
-  color: var(--background);
-}
-
 /* Hero main CTA centered below anchors */
 .hero-cta {
   text-align: center;
@@ -544,10 +514,11 @@ ul {
 /* === Free tools intro line === */
 .free-tools-intro {
   max-width: 42rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   font-size: 1rem;
   line-height: 1.8;
-  color: var(--muted-foreground);
+  color: var(--primary);
+  font-style: italic;
 }
 
 /* === Combined Audience + Journey Section === */
@@ -568,14 +539,6 @@ ul {
   margin-bottom: 1rem;
 }
 
-.audience-subhead {
-  max-width: 42rem;
-  margin-bottom: 2rem;
-  font-size: 1rem;
-  line-height: 1.8;
-  color: var(--muted-foreground);
-  text-align: center;
-}
 
 /* === Audience Self-Select Cards === */
 .audience-cards {
@@ -1168,11 +1131,6 @@ ul {
     <p class="subtitle">AI-enabled tech tools for complex environments.</p>
    
 
-    <!-- <div class="hero-anchors">
-      <a href="#about" class="hero-anchor-btn">About</a>
-      <a href="#who-is-this-for" class="hero-anchor-btn">Who is this for?</a>
-    </div> -->
-
     <div class="hero-cta">
       <a href="#free-tools" class="btn btn-dark">
         Start with Free Tools
@@ -1298,7 +1256,7 @@ ul {
 
       <!-- Free Tools -->
       <div class="free-tools-in-solutions">
-        <p class="free-tools-intro" style="color: var(--primary); font-style: italic; margin-bottom: 1.25rem;">Available now — try these free tools:</p>
+        <p class="free-tools-intro">Available now — try these free tools:</p>
         <div class="free-tool-grid">
           <div class="card free-tool-card">
             <h3>Monitoring and Evaluation SMART Logframe for NGOs</h3>
@@ -1310,7 +1268,7 @@ ul {
             <h3>RACI Matrix Generator</h3>
             <p>Quickly map human rights-based roles and responsibilities across your team or project with a clear Responsible, Accountable, Consulted, and Informed framework.</p>
             <a href="example-raci.html" class="btn btn-outline">View Example Output</a>
-            <a href="https://donate.stripe.com/5kQ3co8ilcK4dWb8Czc3m02" class="stipe-button btn btn-primary" target="_blank" rel="noopener noreferrer">Get My Download</a>
+            <a href="https://donate.stripe.com/5kQ3co8ilcK4dWb8Czc3m02" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get My Download</a>
           </div>
         </div>
       </div>
@@ -1421,7 +1379,7 @@ ul {
 
       <!-- Free Tools -->
       <div class="free-tools-in-solutions">
-        <p class="free-tools-intro" style="color: var(--primary); font-style: italic; margin-bottom: 1.25rem;">Available now — try these free tools:</p>
+        <p class="free-tools-intro">Available now — try these free tools:</p>
         <div class="free-tool-grid">
           <div class="card free-tool-card">
             <h3>Monitoring and Evaluation SMART Logframe for NGOs</h3>
@@ -1433,7 +1391,7 @@ ul {
             <h3>RACI Matrix Generator</h3>
             <p>Quickly map human rights-based roles and responsibilities across your team or project with a clear Responsible, Accountable, Consulted, and Informed framework.</p>
             <a href="example-raci.html" class="btn btn-outline">View Example Output</a>
-            <a href="https://donate.stripe.com/5kQ3co8ilcK4dWb8Czc3m02" class="stipe-button btn btn-primary" target="_blank" rel="noopener noreferrer">Get My Download</a>
+            <a href="https://donate.stripe.com/5kQ3co8ilcK4dWb8Czc3m02" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get My Download</a>
           </div>
         </div>
       </div>
