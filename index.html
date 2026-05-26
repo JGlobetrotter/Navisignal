@@ -747,16 +747,24 @@ ul {
   margin-bottom: 2rem;
 }
 
+/*
 .solution-accordion {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   margin-bottom: 0.75rem;
   overflow: hidden;
 }
+*/
+/* Accordion dropdowns hidden — show cards flat until ready */
+.solution-accordion {
+  border: none;
+  margin-bottom: 1.5rem;
+  overflow: visible;
+}
 
 .solution-accordion-trigger {
+  display: none; /* hidden until accordion UI is re-enabled */
   width: 100%;
-  display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 1.25rem;
@@ -788,14 +796,10 @@ ul {
 }
 
 .solution-accordion-panel {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease;
+  display: block !important;
+  max-height: none !important;
+  overflow: visible !important;
   background: var(--background);
-}
-
-.solution-accordion.open .solution-accordion-panel {
-  max-height: 200rem;
 }
 
 .solution-accordion-panel-inner {
