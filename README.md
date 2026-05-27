@@ -1,5 +1,5 @@
 # Navisignal
-Navisignal Insights LLC — product ecosystem website built in HTML, hosted via Netlify at [navisignal.app](https://navisignal.app).
+Navisignal Insights LLC — product ecosystem website built in HTML, hosted via gitpages at (https://navisignal.app).
 
 All Rights Reserved. Licensing requires permission.
 
