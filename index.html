@@ -241,6 +241,22 @@ ul {
 .hero {
   padding: 4rem 1.5rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('assets/ChatGPT Image May 27, 2026, 04_53_43 PM.png') center center / cover no-repeat;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-compass {
