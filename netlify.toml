@@ -1,4 +1,0 @@
-[build]
-  publish = "."
-  command = "echo 'Static site — no build step'"
-  ignore = "exit 0"

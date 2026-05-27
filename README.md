@@ -1,5 +1,5 @@
 # Navisignal
-Navisignal Insights LLC — product ecosystem website built in HTML, hosted via Netlify at [navisignal.app](https://navisignal.app).
+Navisignal Insights LLC — product ecosystem website built in HTML, hosted via GitHub Pages at [navisignal.app](https://navisignal.app).
 
 All Rights Reserved. Licensing requires permission.
 
@@ -23,9 +23,8 @@ All Rights Reserved. Licensing requires permission.
 ├── terms.html                  Terms of Service
 ├── affiliate-disclosure.html   Affiliate Disclosure
 ├── favicon.svg                 Site icon
-├── CNAME                       Custom domain config
-├── netlify.toml                Netlify build/deploy config
-└── .nojekyll                   Disables Jekyll if mirrored to GitHub Pages
+├── CNAME                       Custom domain (navisignal.app)
+└── .nojekyll                   Disables Jekyll processing on GitHub Pages
 ```
 
 ## Licensing
@@ -34,13 +33,11 @@ All Rights Reserved. Use of any content, code, or assets requires written permis
 
 ## Deployment
 
-The site is a static HTML project with no build step. Pushes to `main` auto-deploy via Netlify using the config in `netlify.toml`.
+The site is a static HTML project with no build step. Pushes to `main` auto-deploy via GitHub Pages.
 
-```toml
-[build]
-  publish = "."
-  command = "echo 'Static site — no build step'"
-```
+**To enable:** GitHub repo → Settings → Pages → Source: "Deploy from a branch" → Branch: `main` / `/ (root)`
+
+The `CNAME` file handles the custom domain automatically.
 
 ## Tools Featured
 
