@@ -952,14 +952,28 @@ ul {
 .credibility-grid {
   display: grid;
   gap: 3rem;
-  max-width: 56rem;
+  max-width: 64rem;
   margin: 0 auto;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
   .credibility-grid {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+.credibility-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.credibility-image img {
+  width: 100%;
+  max-width: 420px;
+  opacity: 0.75;
+  border-radius: 0.5rem;
 }
 
 .credibility-grid h3 {
@@ -1965,6 +1979,9 @@ a.contact-tile-value:hover {
           <li><span class="bullet"></span>Risk scorecards for suppliers, partners, sponsors, or implementation teams</li>
           <li><span class="bullet"></span>Decision briefs for internal review, approval, or sign-off</li>
         </ul>
+      </div>
+      <div class="credibility-image">
+        <img src="assets/One side of the planet.png" alt="" />
       </div>
     </div>
   </section>
