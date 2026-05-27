@@ -10,7 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
   <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
-  <script src="https://navisignal.kit.com/commerce.js" async defer></script>
 
 <style>
 /* === Reset & Base === */
@@ -480,6 +479,26 @@ ul {
   color: var(--primary);
 }
 
+.badge--beta {
+  background: var(--primary-10);
+}
+
+.card--flagship {
+  border-color: var(--gold);
+  margin-bottom: 2rem;
+}
+
+.free-tools-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted-foreground);
+  margin: 0 0 1.25rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+}
+
 .btn-custom-build {
   display: inline-block;
   margin-top: 0.5rem;
@@ -627,6 +646,7 @@ ul {
   letter-spacing: 0.1em;
   color: var(--muted-foreground);
   margin-bottom: 0.75rem;
+  text-align: left;
 }
 
 .solutions-panel-header {
@@ -1246,7 +1266,7 @@ a.contact-tile-value:hover {
           <div class="nav-dropdown-menu">
             <div class="nav-dropdown-menu-inner">
               <a href="#solutions" onclick="selectAudience('corporate')">Corporate Buyers and Suppliers</a>
-              <a href="#solutions" onclick="selectAudience('humanitarian')">Impact and Mission Driven Organizations</a>
+              <a href="#solutions" onclick="selectAudience('humanitarian')">Global Development</a>
               <a href="#solutions" onclick="selectAudience('government')">Governments</a>
               <a href="#solutions" onclick="selectAudience('ai')">AI-Curious Organizations</a>
             </div>
@@ -1280,7 +1300,7 @@ a.contact-tile-value:hover {
       <a href="#about" onclick="document.getElementById('mobile-nav').classList.remove('open')">About</a>
       <span class="mobile-nav-label">Solutions</span>
       <a href="#solutions" onclick="selectAudience('corporate'); document.getElementById('mobile-nav').classList.remove('open')" style="padding-left:1rem; font-size:1rem;">Corporate Buyers and Suppliers</a>
-      <a href="#solutions" onclick="selectAudience('humanitarian'); document.getElementById('mobile-nav').classList.remove('open')" style="padding-left:1rem; font-size:1rem;">Impact and Mission Driven Organizations</a>
+      <a href="#solutions" onclick="selectAudience('humanitarian'); document.getElementById('mobile-nav').classList.remove('open')" style="padding-left:1rem; font-size:1rem;">Global Development</a>
       <a href="#solutions" onclick="selectAudience('government'); document.getElementById('mobile-nav').classList.remove('open')" style="padding-left:1rem; font-size:1rem;">Governments</a>
       <a href="#solutions" onclick="selectAudience('ai'); document.getElementById('mobile-nav').classList.remove('open')" style="padding-left:1rem; font-size:1rem;">AI-Curious Organizations</a>
       <span class="mobile-nav-label">Resources</span>
@@ -1467,7 +1487,7 @@ a.contact-tile-value:hover {
           <svg class="wizard-option-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
           </svg>
-          <h3>Impact and Mission Driven Organizations</h3>
+          <h3>Global Development</h3>
           <p>NGOs, non-profits, and consulting firms working on donor-funded programs and humanitarian development projects.</p>
           <div class="wizard-option-tags">
             <span class="wizard-option-tag">Go / No-Go Decisions</span>
@@ -1519,9 +1539,20 @@ a.contact-tile-value:hover {
     <!-- ====== CORPORATE VIEW ====== -->
     <div id="solutions-corporate" class="solutions-view active">
 
-      <!-- Free Tools -->
+      <!-- Flagship Beta -->
+      <div class="card card--flagship">
+        <span class="badge badge--beta">Beta Access</span>
+        <h3>Sustainability Supplier Readiness Tool</h3>
+        <p>Assess supplier risks and prepare for CSRD, CSDDD, and supply chain due diligence regulations. Built for procurement and sustainability teams managing complex supplier ecosystems.</p>
+        <a href="https://airtable.com/appAVqNudlDB7FCxO/pagTRYnZD5Uiq7KDe/form" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          Join the Beta
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Free Starter Tools -->
+      <p class="free-tools-label">Free starter tools</p>
       <div class="free-tools-in-solutions">
-        <p class="free-tools-intro">Available now — try these free tools:</p>
         <div class="free-tool-grid">
           <div class="card free-tool-card">
             <h3>Monitoring and Evaluation SMART Logframe for NGOs</h3>
@@ -1538,22 +1569,15 @@ a.contact-tile-value:hover {
         </div>
       </div>
 
-      <!-- Decision Readiness -->
-      <div class="solution-accordion open">
+      <!-- Compliance & Structure Design (Decision Readiness tools moved to flagship above) -->
+      <div class="solution-accordion">
         <button class="solution-accordion-trigger" onclick="toggleSolutionAccordion(this)">
           <span>Decision Readiness</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </button>
         <div class="solution-accordion-panel">
           <div class="solution-accordion-panel-inner">
-            <!-- <p class="solution-accordion-desc">Early-stage diagnostics that help organizations evaluate readiness, supplier exposure, and risk prioritization.</p> -->
             <div class="solution-card-grid">
-              <div class="card">
-                <h3>Sustainability Supplier Readiness Tool</h3>
-                <p>This supplier assessment tool helps companies identify risks and prepare suppliers for regulations like CSRD, sustainability and supply chain due diligence.</p>
-                <span class="badge">Coming Soon</span>
-                <a href="mailto:hello@navisignal.com" class="btn-custom-build">Ask us about custom builds</a>
-              </div>
               <!--
               <div class="card">
                 <h3>Supplier / Partner Risk Assessment Tool</h3>
@@ -1648,9 +1672,20 @@ a.contact-tile-value:hover {
     <!-- ====== HUMANITARIAN VIEW ====== -->
     <div id="solutions-humanitarian" class="solutions-view">
 
-      <!-- Free Tools -->
+      <!-- Flagship Beta -->
+      <div class="card card--flagship">
+        <span class="badge badge--beta">Beta Access</span>
+        <h3>Proposal Go / No-Go Tool</h3>
+        <p>A structured decision tool that helps NGOs, non-profits, and consulting firms evaluate bid opportunities, assess risks, and decide whether to pursue proposals — before committing resources.</p>
+        <a href="https://airtable.com/appAVqNudlDB7FCxO/pagTRYnZD5Uiq7KDe/form" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          Join the Beta
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Free Starter Tools -->
+      <p class="free-tools-label">Free starter tools</p>
       <div class="free-tools-in-solutions">
-        <p class="free-tools-intro">Available now — try these free tools:</p>
         <div class="free-tool-grid">
           <div class="card free-tool-card">
             <h3>Monitoring and Evaluation SMART Logframe for NGOs</h3>
@@ -1667,22 +1702,15 @@ a.contact-tile-value:hover {
         </div>
       </div>
 
-      <!-- Decision Readiness -->
-      <div class="solution-accordion open">
+      <!-- Proposal Development (flagship moved above) -->
+      <div class="solution-accordion">
         <button class="solution-accordion-trigger" onclick="toggleSolutionAccordion(this)">
           <span>Proposal Development / New Business Development</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </button>
         <div class="solution-accordion-panel">
           <div class="solution-accordion-panel-inner">
-            <p class="solution-accordion-desc">Early-stage project tools that help NGOs decide whether to pursue opportunities and design programming.</p>
             <div class="solution-card-grid">
-              <div class="card">
-                <h3>Proposal Go / No-Go Tool</h3>
-                <p>A structured proposal go/no-go decision tool that helps NGOs, non-profits and consulting firms evaluate bid opportunities, assess risks, and decide whether to pursue proposals.</p>
-                <span class="badge">Coming Soon</span>
-                <a href="mailto:hello@navisignal.com" class="btn-custom-build">Ask us about custom builds</a>
-              </div>
               <!--
               <div class="card">
                 <h3>Proposal Compliance Matrix Generator</h3>
@@ -1744,7 +1772,18 @@ a.contact-tile-value:hover {
     <!-- ====== GOVERNMENT VIEW ====== -->
     <div id="solutions-government" class="solutions-view">
 
-      <!-- Decision Readiness -->
+      <!-- Flagship Beta -->
+      <div class="card card--flagship">
+        <span class="badge badge--beta">Beta Access</span>
+        <h3>Sustainability Supplier Readiness Tool</h3>
+        <p>Assess supplier risks and prepare for CSRD, CSDDD, and supply chain due diligence regulations. Applicable to public procurement teams managing supplier compliance and regulatory alignment.</p>
+        <a href="https://airtable.com/appAVqNudlDB7FCxO/pagTRYnZD5Uiq7KDe/form" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          Join the Beta
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Policy & Regulatory Readiness -->
       <div class="solution-accordion open">
         <button class="solution-accordion-trigger" onclick="toggleSolutionAccordion(this)">
           <span>Policy &amp; Regulatory Readiness</span>
@@ -1770,7 +1809,18 @@ a.contact-tile-value:hover {
     <!-- ====== AI VIEW ====== -->
     <div id="solutions-ai" class="solutions-view">
 
-      <div class="solution-accordion open">
+      <!-- Flagship -->
+      <div class="card card--flagship">
+        <span class="badge badge--beta">Custom Build</span>
+        <h3>Custom AI Decision Tool</h3>
+        <p>A bespoke AI-powered decision support tool tailored to your organization's workflows, data, and compliance environment. We scope, design, and build from brief to deployment.</p>
+        <a href="https://meetings-na2.hubspot.com/joelle-petrus?uuid=5d53fded-03ec-411c-85f8-e1a3d1ce929e" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          Start a Conversation
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="solution-accordion">
         <button class="solution-accordion-trigger" onclick="toggleSolutionAccordion(this)">
           <span>Define Your AI Use Case</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
@@ -1779,12 +1829,6 @@ a.contact-tile-value:hover {
           <div class="solution-accordion-panel-inner">
             <p class="solution-accordion-desc">We work with organizations to scope, design, and build custom AI tools that solve real operational problems — from decision support to workflow automation.</p>
             <div class="solution-card-grid">
-              <div class="card">
-                <h3>Custom AI Decision Tool</h3>
-                <p>A bespoke AI-powered decision support tool tailored to your organization's workflows, data, and compliance environment. We build from brief to deployment.</p>
-                <span class="badge">Custom Build</span>
-                <a href="mailto:hello@navisignal.com" class="btn-custom-build">Start a conversation</a>
-              </div>
               <!--
               <div class="card">
                 <h3>AI Strategy &amp; Scoping Session</h3>
@@ -1924,7 +1968,6 @@ a.contact-tile-value:hover {
         <div class="contact-tile-body">
           <span class="contact-tile-label">Email</span>
           <a href="mailto:hello@navisignal.app" class="contact-tile-value">hello@navisignal.app</a>
-          <a class="convertkit-button" href="https://navisignal.kit.com/products/navisignal" data-commerce>Support Our Work</a>
         </div>
       </div>
 
@@ -1981,7 +2024,7 @@ a.contact-tile-value:hover {
     // Audience selection and filtering
     var audienceNames = {
       corporate: 'Corporate Buyers and Suppliers',
-      humanitarian: 'Impact and Mission Driven Organizations',
+      humanitarian: 'Global Development',
       government: 'Governments',
       ai: 'AI-Curious Organizations'
     };
