@@ -241,6 +241,22 @@ ul {
 .hero {
   padding: 4rem 1.5rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('assets/ChatGPT Image May 27, 2026, 04_53_43 PM.png') center center / cover no-repeat;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-compass {
@@ -1837,7 +1853,7 @@ a.contact-tile-value:hover {
         </button>
         <div class="solution-accordion-panel">
           <div class="solution-accordion-panel-inner">
-            <p class="solution-accordion-desc">Tools that help government bodies assess regulatory compliance gaps, procurement readiness, and policy alignment.</p>
+            <!-- <p class="solution-accordion-desc">Tools that help government bodies assess regulatory compliance gaps, procurement readiness, and policy alignment.</p> -->
             <div class="solution-card-grid">
               <!--
               <div class="card card--placeholder">
