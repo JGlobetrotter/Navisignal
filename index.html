@@ -536,9 +536,11 @@ ul {
   margin-bottom: 1rem;
 }
 
-.free-tool-card .btn {
-  margin-bottom: 0.75rem;
-  margin-right: 0.75rem;
+.free-tool-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: auto;
 }
 
 /* === Free tools intro line === */
@@ -1069,7 +1071,6 @@ ul {
 /* Remove section-centered's own padding inside the two-column row so both columns align */
 .waitlist-contact-row .section-centered {
   padding: 0;
-  padding: 0.5rem 0;
 }
 
 .col-divider {
@@ -1095,7 +1096,7 @@ ul {
 /* === Contact === */
 .contact {
   text-align: center;
-  padding-top: 0.5rem;
+  padding-top: 0;
 }
 
 .contact h2 {
@@ -1273,10 +1274,10 @@ a.contact-tile-value:hover {
           </div>
         </div>
         <div class="nav-dropdown">
-          <a href="#free-tools" class="nav-dropdown-trigger">Resources</a>
+          <a href="free-tools.html" class="nav-dropdown-trigger">Resources</a>
           <div class="nav-dropdown-menu">
             <div class="nav-dropdown-menu-inner">
-              <a href="#free-tools">Free Digital Tools</a>
+              <a href="free-tools.html">Free Digital Tools</a>
               <a href="resources.html">Partner Resources</a>
             </div>
           </div>
@@ -1304,7 +1305,7 @@ a.contact-tile-value:hover {
       <a href="#solutions" onclick="selectAudience('government'); document.getElementById('mobile-nav').classList.remove('open')" style="padding-left:1rem; font-size:1rem;">Governments</a>
       <a href="#solutions" onclick="selectAudience('ai'); document.getElementById('mobile-nav').classList.remove('open')" style="padding-left:1rem; font-size:1rem;">AI-Curious Organizations</a>
       <span class="mobile-nav-label">Resources</span>
-      <a href="#free-tools" onclick="document.getElementById('mobile-nav').classList.remove('open')" style="padding-left:1rem; font-size:1rem;">Free Digital Tools</a>
+      <a href="free-tools.html" onclick="document.getElementById('mobile-nav').classList.remove('open')" style="padding-left:1rem; font-size:1rem;">Free Digital Tools</a>
       <a href="resources.html" onclick="document.getElementById('mobile-nav').classList.remove('open')" style="padding-left:1rem; font-size:1rem;">Partner Resources</a>
       <a href="#waitlist" onclick="document.getElementById('mobile-nav').classList.remove('open')">Waitlist</a>
       <a href="#contact" onclick="document.getElementById('mobile-nav').classList.remove('open')">Contact</a>
@@ -1366,7 +1367,7 @@ a.contact-tile-value:hover {
    
 
     <div class="hero-cta">
-      <a href="#free-tools" class="btn btn-dark">
+      <a href="free-tools.html" class="btn btn-dark">
         Start with Free Tools
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
       </a>
@@ -1555,16 +1556,12 @@ a.contact-tile-value:hover {
       <div class="free-tools-in-solutions">
         <div class="free-tool-grid">
           <div class="card free-tool-card">
-            <h3>Monitoring and Evaluation SMART Logframe for NGOs</h3>
-            <p>Create advanced and 'smart' results-based logframes for NGO projects. Track indicators with automated flags to stay on track. Aligned with general donor reporting standards and M&amp;E best practices.</p>
-            <a href="demo-logframe.html" class="btn btn-outline">Live Demo</a>
-            <a href="https://donate.stripe.com/5kQcMY9mp7pK8BRbOLc3m04" class="stripe btn btn-primary" target="_blank" rel="noopener noreferrer">Get My Download</a>
-          </div>
-          <div class="card free-tool-card">
             <h3>RACI Matrix Generator</h3>
             <p>Quickly map human rights-based roles and responsibilities across your team or project with a clear Responsible, Accountable, Consulted, and Informed framework.</p>
-            <a href="example-raci.html" class="btn btn-outline">View Example Output</a>
-            <a href="https://donate.stripe.com/5kQ3co8ilcK4dWb8Czc3m02" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get My Download</a>
+            <div class="free-tool-card-actions">
+              <a href="example-raci.html" class="btn btn-outline">View Example Output</a>
+              <a href="https://donate.stripe.com/5kQ3co8ilcK4dWb8Czc3m02" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get My Download</a>
+            </div>
           </div>
         </div>
       </div>
@@ -1690,14 +1687,18 @@ a.contact-tile-value:hover {
           <div class="card free-tool-card">
             <h3>Monitoring and Evaluation SMART Logframe for NGOs</h3>
             <p>Create advanced and 'smart' results-based logframes for NGO projects. Track indicators with automated flags to stay on track. Aligned with general donor reporting standards and M&amp;E best practices.</p>
-            <a href="demo-logframe.html" class="btn btn-outline">Live Demo</a>
-            <a href="https://donate.stripe.com/5kQcMY9mp7pK8BRbOLc3m04" class="stripe btn btn-primary" target="_blank" rel="noopener noreferrer">Get My Download</a>
+            <div class="free-tool-card-actions">
+              <a href="demo-logframe.html" class="btn btn-outline">Live Demo</a>
+              <a href="https://donate.stripe.com/5kQcMY9mp7pK8BRbOLc3m04" class="stripe btn btn-primary" target="_blank" rel="noopener noreferrer">Get My Download</a>
+            </div>
           </div>
           <div class="card free-tool-card">
             <h3>RACI Matrix Generator</h3>
             <p>Quickly map human rights-based roles and responsibilities across your team or project with a clear Responsible, Accountable, Consulted, and Informed framework.</p>
-            <a href="example-raci.html" class="btn btn-outline">View Example Output</a>
-            <a href="https://donate.stripe.com/5kQ3co8ilcK4dWb8Czc3m02" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get My Download</a>
+            <div class="free-tool-card-actions">
+              <a href="example-raci.html" class="btn btn-outline">View Example Output</a>
+              <a href="https://donate.stripe.com/5kQ3co8ilcK4dWb8Czc3m02" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get My Download</a>
+            </div>
           </div>
         </div>
       </div>
@@ -1781,6 +1782,29 @@ a.contact-tile-value:hover {
           Join the Beta
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         </a>
+      </div>
+
+      <!-- Free Starter Tools -->
+      <p class="free-tools-label">Free starter tools</p>
+      <div class="free-tools-in-solutions">
+        <div class="free-tool-grid">
+          <div class="card free-tool-card">
+            <h3>Monitoring and Evaluation SMART Logframe for NGOs</h3>
+            <p>Create advanced and 'smart' results-based logframes for NGO projects. Track indicators with automated flags to stay on track. Aligned with general donor reporting standards and M&amp;E best practices.</p>
+            <div class="free-tool-card-actions">
+              <a href="demo-logframe.html" class="btn btn-outline">Live Demo</a>
+              <a href="https://donate.stripe.com/5kQcMY9mp7pK8BRbOLc3m04" class="stripe btn btn-primary" target="_blank" rel="noopener noreferrer">Get My Download</a>
+            </div>
+          </div>
+          <div class="card free-tool-card">
+            <h3>RACI Matrix Generator</h3>
+            <p>Quickly map human rights-based roles and responsibilities across your team or project with a clear Responsible, Accountable, Consulted, and Informed framework.</p>
+            <div class="free-tool-card-actions">
+              <a href="example-raci.html" class="btn btn-outline">View Example Output</a>
+              <a href="https://donate.stripe.com/5kQ3co8ilcK4dWb8Czc3m02" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get My Download</a>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Policy & Regulatory Readiness -->
@@ -1869,27 +1893,22 @@ a.contact-tile-value:hover {
 
   <!-- Credibility Section — When teams use Navisignal -->
   <section id="credibility" class="section">
-    <p class="section-tag">When teams use Navisignal</p>
+    <p class="section-tag">When Teams Use Navisignal</p>
+
+    <p class="section-body" style="max-width: 48rem; margin-bottom: 2rem;">Navisignal helps teams with AI-enabled decision and tech tools to move from scattered information to structured, review-ready outputs — especially under pressure, across stakeholders, in global environments, or with incomplete data.</p>
 
     <div class="credibility-grid">
       <div>
-        <h3>Use Scenarios</h3>
+        <h3>Example Outputs</h3>
         <ul>
-          <li><span class="bullet"></span>Assessing supplier readiness for compliance with global sustainability standards (e.g. CSRD, GRI and others.)</li>
-          <li><span class="bullet"></span>Mapping human rights due diligence responsibilities across supply chains</li>
-          <li><span class="bullet"></span>Evaluating whether to bid on a complex donor-funded proposal</li>
-          <li><span class="bullet"></span>Structuring go/no-go decisions and diagnostics under time and resource pressure</li>
-          <li><span class="bullet"></span>Drafting AI enabled M&amp;E frameworks aligned with donor reporting standards</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Output Examples</h3>
-        <ul>
-          <li><span class="bullet"></span>Structured logframes with automated indicator or KPI tracking</li>
+          <li><span class="bullet"></span>Supplier readiness assessments</li>
+          <li><span class="bullet"></span>Human rights due diligence responsibility maps</li>
+          <li><span class="bullet"></span>Proposal go/no-go diagnostics</li>
+          <li><span class="bullet"></span>Compliance matrices mapped to donor or buyer requirements</li>
+          <li><span class="bullet"></span>Logframes, indicators, and KPI structures</li>
           <li><span class="bullet"></span>RACI matrices for governance and accountability</li>
-          <li><span class="bullet"></span>Compliance matrices mapped to donor requirements</li>
-          <li><span class="bullet"></span>Risk assessment scorecards for suppliers, sponsors and partner organizations</li>
-          <li><span class="bullet"></span>Decision briefs for institutional review and sign-off, leveraging applied AI</li>
+          <li><span class="bullet"></span>Risk scorecards for suppliers, partners, sponsors, or implementation teams</li>
+          <li><span class="bullet"></span>Decision briefs for internal review, approval, or sign-off</li>
         </ul>
       </div>
     </div>
