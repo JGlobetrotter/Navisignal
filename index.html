@@ -1317,6 +1317,72 @@ a.contact-tile-value:hover {
   font-size: 0.8125rem;
   padding: 0.5rem 1.5rem;
 }
+
+/* === Mobile Responsive Fixes === */
+@media (max-width: 640px) {
+
+  /* Hero panel: solid background on narrow screens instead of fading gradient */
+  .hero-text-panel {
+    background: rgba(90, 100, 115, 0.65);
+    padding: 2rem 1.25rem;
+    border-radius: 0.25rem;
+  }
+
+  /* Scale down compass SVG on small screens */
+  .hero-compass svg {
+    width: 160px;
+    height: 57px;
+  }
+
+  /* Hero heading readable on phones */
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  /* Stack free tool card buttons on very small screens */
+  .free-tool-card-actions {
+    flex-direction: column;
+  }
+  .free-tool-card-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Hide planet image on mobile — list gets full width */
+  .credibility-image {
+    display: none;
+  }
+
+  /* Flagship card buttons full-width */
+  .card--flagship .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Reduce section padding on mobile */
+  .section {
+    padding: 2.5rem 1.25rem;
+  }
+
+  /* Footer: stack links vertically on small screens */
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* Waitlist perks list readable */
+  .waitlist-perks li {
+    font-size: 0.875rem;
+  }
+}
+
+/* iOS safe area for sticky header */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .site-header {
+    padding-top: env(safe-area-inset-top);
+  }
+}
 </style>
 
 </head>
