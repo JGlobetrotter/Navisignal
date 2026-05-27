@@ -606,6 +606,53 @@ ul {
   box-shadow: 0 0 0 1px var(--gold);
 }
 
+.wizard-option-cta {
+  display: none;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--primary);
+  margin-top: auto;
+  padding-top: 0.625rem;
+}
+
+.wizard-option.selected .wizard-option-cta {
+  display: block;
+}
+
+.wizard-step-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted-foreground);
+  margin-bottom: 0.75rem;
+}
+
+.solutions-panel-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 2rem 0 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.solutions-panel-step {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+
+.solutions-panel-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
 .wizard-option-icon {
   width: 1.75rem;
   height: 1.75rem;
@@ -1399,6 +1446,7 @@ a.contact-tile-value:hover {
     <div id="free-tools"></div>
 
     <div class="audience-wizard">
+      <p class="wizard-step-label">Step 1 &mdash; Select your organization type</p>
       <div class="wizard-options">
 
         <div class="wizard-option selected" data-audience="corporate" onclick="selectAudience('corporate')">
@@ -1412,6 +1460,7 @@ a.contact-tile-value:hover {
             <span class="wizard-option-tag">CSRD / CSDDD</span>
             <span class="wizard-option-tag">Human Rights Due Diligence</span>
           </div>
+          <span class="wizard-option-cta">See your tools &darr;</span>
         </div>
 
         <div class="wizard-option" data-audience="humanitarian" onclick="selectAudience('humanitarian')">
@@ -1425,6 +1474,7 @@ a.contact-tile-value:hover {
             <span class="wizard-option-tag">Logframes</span>
             <span class="wizard-option-tag">Proposal Compliance</span>
           </div>
+          <span class="wizard-option-cta">See your tools &darr;</span>
         </div>
 
         <div class="wizard-option" data-audience="government" onclick="selectAudience('government')">
@@ -1438,6 +1488,7 @@ a.contact-tile-value:hover {
             <span class="wizard-option-tag">Public Procurement</span>
             <span class="wizard-option-tag">Regulatory Oversight</span>
           </div>
+          <span class="wizard-option-cta">See your tools &darr;</span>
         </div>
 
         <div class="wizard-option" data-audience="ai" onclick="selectAudience('ai')">
@@ -1451,8 +1502,17 @@ a.contact-tile-value:hover {
             <span class="wizard-option-tag">Decision Tools</span>
             <span class="wizard-option-tag">AI Strategy</span>
           </div>
+          <span class="wizard-option-cta">See your tools &darr;</span>
         </div>
 
+      </div>
+    </div>
+
+    <!-- Solutions panel scroll target + dynamic header -->
+    <div id="solutions-panel">
+      <div class="solutions-panel-header">
+        <span class="solutions-panel-step">Step 2 &mdash; Your tools</span>
+        <span class="solutions-panel-name" id="solutions-panel-name">Corporate Buyers and Suppliers</span>
       </div>
     </div>
 
@@ -1934,6 +1994,13 @@ a.contact-tile-value:hover {
   <!-- Scripts -->
   <script>
     // Audience selection and filtering
+    var audienceNames = {
+      corporate: 'Corporate Buyers and Suppliers',
+      humanitarian: 'Impact and Mission Driven Organizations',
+      government: 'Governments',
+      ai: 'AI-Curious Organizations'
+    };
+
     function selectAudience(audience) {
       document.querySelectorAll('.wizard-option').forEach(function(option) {
         option.classList.toggle('selected', option.dataset.audience === audience);
@@ -1942,6 +2009,17 @@ a.contact-tile-value:hover {
       document.querySelectorAll('.solutions-view').forEach(function(view) {
         view.classList.toggle('active', view.id === 'solutions-' + audience);
       });
+
+      var nameEl = document.getElementById('solutions-panel-name');
+      if (nameEl) nameEl.textContent = audienceNames[audience] || audience;
+
+      var panel = document.getElementById('solutions-panel');
+      if (panel) {
+        setTimeout(function() {
+          var top = panel.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }, 50);
+      }
     }
 
     // Solutions accordion toggle
